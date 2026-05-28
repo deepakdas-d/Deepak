@@ -24,22 +24,13 @@ const useMeasure = () => {
 
 /* ──────── Sophisticated monochrome palette ──────── */
 const TILE_PALETTE = [
-    { bg: '#0a0a0a', text: '#fafafa' },   // near-black
-    { bg: '#f7f7f7', text: '#1a1a1a' },   // off-white
-    { bg: '#1c1c1c', text: '#e5e5e5' },   // charcoal
-    { bg: '#ededed', text: '#222222' },    // silver
-    { bg: '#2a2a2a', text: '#d4d4d4' },   // dark slate
-    { bg: '#fafafa', text: '#0a0a0a' },   // pure white
-    { bg: '#3a3a3a', text: '#c8c8c8' },   // warm dark
-    { bg: '#e0e0e0', text: '#1a1a1a' },   // light gray
+    { bg: 'var(--card-bg-solid)', text: 'var(--fg)' },
+    { bg: 'var(--accent)', text: '#ffffff' },
+    { bg: 'var(--border-strong)', text: 'var(--fg)' },
+    { bg: 'var(--card-bg)', text: 'var(--fg)' },
 ];
 
-const isLightBg = (hex) => {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return (r * 299 + g * 587 + b * 114) / 1000 > 128;
-};
+// isLightBg removed as we use theme-aware borders
 
 const SkillsMasonry = ({
     skills = [],
@@ -70,10 +61,7 @@ const SkillsMasonry = ({
 
         const io = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setInView(true);
-                    io.disconnect();
-                }
+                setInView(entry.isIntersecting);
             },
             { rootMargin: '0px 0px -80px 0px' }
         );
@@ -157,17 +145,20 @@ const SkillsMasonry = ({
     );
 
     useLayoutEffect(() => {
-        if (!inView) return;
+        if (!inView || !containerRef.current) return;
+
+        const q = gsap.utils.selector(containerRef);
 
         grid.forEach((item, index) => {
             const selector = `[data-skill="${item.id}"]`;
+            const targets = q(selector);
             const target = { x: item.x, y: item.y, width: item.w, height: item.h };
 
             const isNewItem = index >= prevCount.current;
 
             if (!isMounted || isNewItem) {
                 const init = getInitialOffset(item);
-                gsap.fromTo(selector,
+                gsap.fromTo(targets,
                     {
                         opacity: 0,
                         x: init.x,
@@ -188,7 +179,7 @@ const SkillsMasonry = ({
                     }
                 );
             } else {
-                gsap.to(selector, { ...target, duration: 0.5, ease: 'power2.out', overwrite: 'auto' });
+                gsap.to(targets, { ...target, duration: 0.5, ease: 'power2.out', overwrite: 'auto' });
             }
         });
 
@@ -206,7 +197,6 @@ const SkillsMasonry = ({
         <div className="skills-masonry-wrapper">
             <div ref={containerRef} className="skills-masonry-grid" style={{ height: containerHeight }}>
                 {grid.map(item => {
-                    const light = isLightBg(item.color.bg);
                     return (
                         <div
                             key={item.id}
@@ -221,9 +211,7 @@ const SkillsMasonry = ({
                                 style={{
                                     backgroundColor: item.color.bg,
                                     color: item.color.text,
-                                    border: light
-                                        ? '1px solid rgba(0, 0, 0, 0.08)'
-                                        : '1px solid rgba(255, 255, 255, 0.06)',
+                                    border: '1px solid var(--border-medium)',
                                 }}
                             >
                                 <span className="skill-tile-label">{item.label}</span>

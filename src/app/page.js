@@ -10,10 +10,20 @@ import SkillsMasonry from "../components/SkillsMasonry";
 import DecryptedText from "../components/DecryptedText";
 import ExperienceSection from "../components/ExperienceSection";
 import EnquirySection from "../components/EnquirySection";
+import SectionReveal from "../components/SectionReveal";
+import ThemeToggle from "../components/ThemeToggle";
+import ScrollProgress from "../components/ScrollProgress";
+import CustomCursor from "../components/CustomCursor";
+import BackToTop from "../components/BackToTop";
+import SectionDivider from "../components/SectionDivider";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { FiDownload } from 'react-icons/fi';
 import styles from './home.module.css';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const { scrollYProgress } = useScroll();
+  const yParallax = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   useEffect(() => {
     // Simulate a brief loading sequence for the skeleton logic
@@ -25,22 +35,28 @@ export default function Home() {
 
   return (
     <div className={styles.root}>
+      <ScrollProgress />
+      <CustomCursor />
+      <BackToTop />
+
       {/* Background Grid */}
       <div className={styles.dotGridBg}>
         <DotGrid
           dotSize={6}
           gap={30}
-          baseColor="#e5e5e5"
-          activeColor="#000000"
+          baseColor="var(--dot-base)"
+          activeColor="var(--dot-active)"
           proximity={150}
           shockRadius={250}
           shockStrength={5}
         />
       </div>
 
-      {/* Onboarding Skeleton Overlay */}
+      {/* Premium Loading Screen */}
       <div className={`${styles.loadingOverlay} ${!loading ? styles.hidden : ''}`}>
-        <div className={styles.skeletonBar}></div>
+        <div className={styles.loaderInitials}>DD</div>
+        <div className={styles.loaderLine}></div>
+        <div className={styles.loaderTagline}>Full Stack Developer</div>
       </div>
 
       {/* Nav */}
@@ -50,8 +66,8 @@ export default function Home() {
         items={[
           {
             label: "Details",
-            bgColor: "#f5f5f5",
-            textColor: "#000",
+            bgColor: "var(--card-bg-solid)",
+            textColor: "var(--fg)",
             links: [
               { label: "Experience", ariaLabel: "About Experience", href: "#experience" },
               { label: "Skills", ariaLabel: "About Skills", href: "#about" }
@@ -59,8 +75,8 @@ export default function Home() {
           },
           {
             label: "Connect",
-            bgColor: "#f5f5f5",
-            textColor: "#000",
+            bgColor: "var(--card-bg-solid)",
+            textColor: "var(--fg)",
             links: [
               { label: "Email Me", ariaLabel: "Email us", href: "mailto:enquiry@deepakdas.online" },
               { label: "GitHub", ariaLabel: "GitHub", href: "https://github.com/deepakdas-d" },
@@ -68,10 +84,10 @@ export default function Home() {
             ]
           }
         ]}
-        baseColor="rgba(255, 255, 255, 0.8)"
-        menuColor="#000000"
-        buttonBgColor="#000000"
-        buttonTextColor="#ffffff"
+        baseColor="var(--nav-bg)"
+        menuColor="var(--fg)"
+        buttonBgColor="var(--nav-btn-bg)"
+        buttonTextColor="var(--nav-btn-text)"
         ease="power3.out"
       />
 
@@ -115,104 +131,138 @@ export default function Home() {
         <div className={styles.heroCta}>
           <a href="#contact" className={styles.btnPrimary}>Get in touch</a>
           <a href="#experience" className={styles.btnGhost}>View experience</a>
+          <a
+            href="/Deepak_Das_FullStack.pdf"
+            download
+            className={styles.btnResume}
+          >
+            <FiDownload /> Resume
+          </a>
         </div>
       </main>
 
       {/* About */}
-      <section id="about" className={styles.sectionAbout}>
-        <div className={styles.aboutWrapper}>
-          <div className={styles.aboutImageContainer}>
-            <Image
-              src="/images/deepak.jpeg"
-              alt="Deepak Das"
-              width={400}
-              height={400}
-              className={styles.aboutImage}
-            />
-          </div>
-          <div className={styles.aboutContent}>
-            <h2 className={styles.sectionTitle}>
-              <DecryptedText text="About Me" animateOn="view" revealDirection="center" />
-              <span className={styles.orangeDot}>.</span>
-            </h2>
-            <p className={styles.aboutText}>
-              Full Stack Developer with hands-on experience building cross-platform mobile applications, scalable backend systems, and production-grade web interfaces. Proficient in Flutter, Dart, Django, Django REST Framework, and React.js with strong expertise in RESTful API design, Firebase services, and state management (GetX, Provider, BLoC). Experienced in cloud deployment on AWS EC2, Nginx reverse proxy, SSL/TLS, Linux server administration, and CI/CD pipelines using GitHub Actions. Skilled in WebSocket-based real-time communication, WebRTC, payment gateway integration (Razorpay), IoT device integration, push notifications (FCM), and Google Play Store publishing.
-            </p>
-          </div>
-        </div>
-
-        <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <DecryptedText text="My Expertise" animateOn="view" revealDirection="center" />
-          <span className={styles.orangeDot}>.</span>
-        </h2>
-
-        <div className={styles.expertiseWrapper}>
-          {[
-            {
-              title: "Mobile",
-              skills: ["Flutter", "Dart", "Android", "Windows", "Play Store", "Kotlin"]
-            },
-            {
-              title: "Web",
-              skills: ["React.js", "Next.js", "TypeScript", "Admin Portals", "UI/UX"]
-            },
-            {
-              title: "Backend & Server",
-              skills: ["Django", "DRF", "FastAPI", "REST APIs", "WebSockets", "WebRTC", "PostgreSQL", "SQLite", "AWS EC2", "Nginx", "Gunicorn", "SSL/TLS", "GitHub Actions"]
-            },
-            {
-              title: "Third-Party APIs & Cloud",
-              skills: ["Firebase Auth", "Firestore", "Cloud Storage", "FCM", "Razorpay", "Maps API"]
-            },
-            {
-              title: "Architecture & Tools",
-              skills: ["GetX", "Provider", "BLoC", "Clean Architecture", "Git"]
-            }
-          ].map((cat) => (
-            <div key={cat.title} className={styles.expertiseCategory}>
-              <h3 className={styles.categoryTitle}>{cat.title}</h3>
-              <SkillsMasonry
-                skills={cat.skills}
-                initialCount={cat.skills.length}
-                animateFrom="bottom"
-                stagger={0.05}
-                blurToFocus={true}
+      <SectionReveal>
+        <section id="about" className={styles.sectionAbout}>
+          <div className={`${styles.aboutWrapper} ${styles.glassCard}`}>
+            <motion.div
+              className={styles.aboutImageContainer}
+              style={{ y: yParallax }}
+            >
+              <Image
+                src="/images/deepak.jpeg"
+                alt="Deepak Das"
+                width={400}
+                height={400}
+                className={styles.aboutImage}
               />
+            </motion.div>
+            <div className={styles.aboutContent}>
+              <h2 className={styles.sectionTitle} style={{ marginBottom: '1.5rem' }}>
+                <DecryptedText text="About Me" animateOn="view" revealDirection="center" />
+                <span className={styles.orangeDot}>.</span>
+              </h2>
+              <div className={styles.aboutBios}>
+                <p className={styles.aboutText}>
+                  I am a <strong>Full Stack Developer</strong> passionate about crafting seamless digital experiences. My expertise lies in building <strong>cross-platform mobile applications</strong> and <strong>scalable backend systems</strong> that solve real-world problems.
+                </p>
+                <p className={styles.aboutText}>
+                  Proficient in <strong>Flutter, Django, and React.js</strong>, I specialize in RESTful API design, cloud deployment (AWS), and real-time communication using WebSockets and WebRTC. I enjoy bridging the gap between elegant UI and robust infrastructure.
+                </p>
+                <p className={styles.aboutText}>
+                  With a strong background in <strong>DevOps and CI/CD</strong>, I ensure production-grade quality from development to deployment. Whether it's integrating IoT devices or scaling server-side logic, I focus on performance, security, and user-centric design.
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+
+          <SectionDivider />
+
+          <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <DecryptedText text="My Expertise" animateOn="view" revealDirection="center" />
+            <span className={styles.orangeDot}>.</span>
+          </h2>
+
+          <div className={styles.expertiseWrapper}>
+            {[
+              {
+                title: "Mobile",
+                skills: ["Flutter", "Dart", "Android", "Windows", "Play Store", "Kotlin"]
+              },
+              {
+                title: "Web",
+                skills: ["React.js", "Next.js", "TypeScript", "Admin Portals", "UI/UX"]
+              },
+              {
+                title: "Backend & Server",
+                skills: ["Django", "DRF", "FastAPI", "REST APIs", "WebSockets", "WebRTC", "PostgreSQL", "SQLite", "AWS EC2", "Nginx", "Gunicorn", "SSL/TLS", "GitHub Actions"]
+              },
+              {
+                title: "Third-Party APIs & Cloud",
+                skills: ["Firebase Auth", "Firestore", "Cloud Storage", "FCM", "Razorpay", "Maps API"]
+              },
+              {
+                title: "Architecture & Tools",
+                skills: ["GetX", "Provider", "BLoC", "Clean Architecture", "Git"]
+              }
+            ].map((cat) => (
+              <div key={cat.title} className={`${styles.expertiseCategory} ${styles.glassCard}`}>
+                <h3 className={styles.categoryTitle}>{cat.title}</h3>
+                <SkillsMasonry
+                  skills={cat.skills}
+                  initialCount={cat.skills.length}
+                  animateFrom="bottom"
+                  stagger={0.05}
+                  blurToFocus={true}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
 
       {/* Experience */}
-      <section className={styles.sectionWork} id="experience">
-        <h2 className={styles.sectionTitle}>
-          <DecryptedText text="Professional Experience" animateOn="view" revealDirection="center" />
-          <span className={styles.orangeDot}>.</span>
-        </h2>
-        <ExperienceSection />
-      </section>
+      <SectionReveal delay={100}>
+        <section className={styles.sectionWork} id="experience">
+          <h2 className={styles.sectionTitle}>
+            <DecryptedText text="Professional Experience" animateOn="view" revealDirection="center" />
+            <span className={styles.orangeDot}>.</span>
+          </h2>
+          <ExperienceSection />
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
 
       {/* Contact */}
-      <section className={styles.sectionContact} id="contact">
-        <p className={styles.contactSub}>Let&apos;s talk</p>
-        <h2 className={styles.contactHeading}>
-          <DecryptedText text="build together" animateOn="view" revealDirection="center" />
-          <span className={styles.orangeDot}>.</span>
-        </h2>
-        <a href="mailto:enquiry@deepakdas.online" className={styles.contactEmail}>enquiry@deepakdas.online</a>
-        <EnquirySection />
-      </section>
+      <SectionReveal delay={100}>
+        <section className={styles.sectionContact} id="contact">
+          <p className={styles.contactSub}>Let&apos;s talk</p>
+          <h2 className={styles.contactHeading}>
+            <DecryptedText text="build together" animateOn="view" revealDirection="center" />
+            <span className={styles.orangeDot}>.</span>
+          </h2>
+          <a href="mailto:enquiry@deepakdas.online" className={styles.contactEmail}>enquiry@deepakdas.online</a>
+          <EnquirySection />
+        </section>
+      </SectionReveal>
 
       {/* Footer */}
-      <footer className={styles.footer}>
-        <span>
-          <DecryptedText text="© 2026 Deepak Das" animateOn="view" revealDirection="start" />
-        </span>
-        <div className={styles.footerLinks}>
-          <a href="https://github.com/deepakdas-d" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/deepak-das-d-76768034a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-      </footer>
+      <SectionReveal delay={200}>
+        <footer className={styles.footer}>
+          <span>
+            <DecryptedText text="© 2026 Deepak Das" animateOn="view" revealDirection="start" />
+          </span>
+          <div className={styles.footerLinks}>
+            <a href="https://github.com/deepakdas-d" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/deepak-das-d-76768034a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </footer>
+      </SectionReveal>
+
+      <ThemeToggle />
     </div>
   );
 }

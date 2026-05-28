@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useEffect, useCallback, useMemo } from 'react';
+import { useRef, useEffect, useCallback, useMemo, useState } from 'react';
 import { gsap } from 'gsap';
 
 import './DotGrid.css';
@@ -15,14 +15,47 @@ const throttle = (func, limit) => {
     };
 };
 
-function hexToRgb(hex) {
-    const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
-    if (!m) return { r: 0, g: 0, b: 0 };
-    return {
-        r: parseInt(m[1], 16),
-        g: parseInt(m[2], 16),
-        b: parseInt(m[3], 16)
-    };
+function parseColor(color) {
+    if (typeof window === 'undefined') return { r: 0, g: 0, b: 0, a: 1 };
+
+    let finalColor = color.trim();
+
+    // Resolve CSS variables
+    if (finalColor.startsWith('var(')) {
+        const varName = finalColor.match(/var\((--[^)]+)\)/)?.[1];
+        if (varName) {
+            const resolved = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+            if (resolved) finalColor = resolved;
+        }
+    }
+
+    // Handle hex
+    if (finalColor.startsWith('#')) {
+        const m = finalColor.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+        if (m) {
+            return {
+                r: parseInt(m[1], 16),
+                g: parseInt(m[2], 16),
+                b: parseInt(m[3], 16),
+                a: 1
+            };
+        }
+    }
+
+    // Handle rgb/rgba
+    const rgbaMatch = finalColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+    if (rgbaMatch) {
+        return {
+            r: parseInt(rgbaMatch[1], 10),
+            g: parseInt(rgbaMatch[2], 10),
+            b: parseInt(rgbaMatch[3], 10),
+            a: rgbaMatch[4] !== undefined ? parseFloat(rgbaMatch[4]) : 1
+        };
+    }
+
+    // If it's a known color name or fails, return a sensible default based on current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return isDark ? { r: 255, g: 255, b: 255, a: 0.1 } : { r: 0, g: 0, b: 0, a: 0.1 };
 }
 
 const DotGrid = ({
@@ -54,8 +87,38 @@ const DotGrid = ({
         lastY: 0
     });
 
-    const baseRgb = useMemo(() => hexToRgb(baseColor), [baseColor]);
-    const activeRgb = useMemo(() => hexToRgb(activeColor), [activeColor]);
+    const [resolvedBase, setResolvedBase] = useState({ r: 0, g: 0, b: 0, a: 1, raw: baseColor });
+    const [resolvedActive, setResolvedActive] = useState({ r: 0, g: 0, b: 0, a: 1, raw: activeColor });
+
+    useEffect(() => {
+        const resolve = () => {
+            setResolvedBase(prev => ({ ...parseColor(baseColor), raw: baseColor }));
+            setResolvedActive(prev => ({ ...parseColor(activeColor), raw: activeColor }));
+        };
+
+        // Initial resolve with a small delay to ensure CSS variables are ready
+        const timer = setTimeout(resolve, 50);
+
+        // Listen for theme changes as well
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                    // Small delay to let CSS transitions start/finish if needed
+                    setTimeout(resolve, 50);
+                }
+            });
+        });
+
+        observer.observe(document.documentElement, { attributes: true });
+
+        return () => {
+            clearTimeout(timer);
+            observer.disconnect();
+        };
+    }, [baseColor, activeColor]);
+
+    const baseRgb = resolvedBase;
+    const activeRgb = resolvedActive;
 
     const circlePath = useMemo(() => {
         if (typeof window === 'undefined' || !window.Path2D) return null;
@@ -126,19 +189,20 @@ const DotGrid = ({
                 const dy = dot.cy - py;
                 const dsq = dx * dx + dy * dy;
 
-                let style = baseColor;
+                let style = baseRgb.raw;
                 if (dsq <= proxSq) {
                     const dist = Math.sqrt(dsq);
                     const t = 1 - dist / proximity;
                     const r = Math.round(baseRgb.r + (activeRgb.r - baseRgb.r) * t);
                     const g = Math.round(baseRgb.g + (activeRgb.g - baseRgb.g) * t);
                     const b = Math.round(baseRgb.b + (activeRgb.b - baseRgb.b) * t);
-                    style = `rgb(${r},${g},${b})`;
+                    const a = baseRgb.a + (activeRgb.a - baseRgb.a) * t;
+                    style = `rgba(${r},${g},${b},${a})`;
                 }
 
                 ctx.save();
                 ctx.translate(ox, oy);
-                ctx.fillStyle = style;
+                ctx.fillStyle = style.startsWith('var(') ? `rgba(${baseRgb.r},${baseRgb.g},${baseRgb.b},${baseRgb.a})` : style;
                 ctx.fill(circlePath);
                 ctx.restore();
             }

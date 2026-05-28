@@ -30,31 +30,28 @@ const CardNav = ({
         if (isMobile) {
             const contentEl = navEl.querySelector('.card-nav-content');
             if (contentEl) {
-                const wasVisible = contentEl.style.visibility;
-                const wasPointerEvents = contentEl.style.pointerEvents;
-                const wasPosition = contentEl.style.position;
+                // Return to auto temporarily to measure
                 const wasHeight = contentEl.style.height;
+                const wasPosition = contentEl.style.position;
+                const wasVisibility = contentEl.style.visibility;
 
-                contentEl.style.visibility = 'visible';
-                contentEl.style.pointerEvents = 'auto';
-                contentEl.style.position = 'static';
                 contentEl.style.height = 'auto';
+                contentEl.style.position = 'relative';
+                contentEl.style.visibility = 'visible';
 
-                contentEl.offsetHeight;
+                const contentHeight = contentEl.scrollHeight;
+
+                // Reset
+                contentEl.style.height = wasHeight;
+                contentEl.style.position = wasPosition;
+                contentEl.style.visibility = wasVisibility;
 
                 const topBar = 60;
                 const padding = 16;
-                const contentHeight = contentEl.scrollHeight;
-
-                contentEl.style.visibility = wasVisible;
-                contentEl.style.pointerEvents = wasPointerEvents;
-                contentEl.style.position = wasPosition;
-                contentEl.style.height = wasHeight;
-
                 return topBar + contentHeight + padding;
             }
         }
-        return 260;
+        return 280;
     };
 
     const createTimeline = () => {
