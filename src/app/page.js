@@ -62,7 +62,7 @@ export default function Home() {
             bgColor: "#f5f5f5",
             textColor: "#000",
             links: [
-              { label: "Email Me", ariaLabel: "Email us", href: "mailto:deepakdas.since2004@gmail.com" },
+              { label: "Email Me", ariaLabel: "Email us", href: "mailto:enquiry@deepakdas.online" },
               { label: "GitHub", ariaLabel: "GitHub", href: "https://github.com/deepakdas-d" },
               { label: "LinkedIn", ariaLabel: "LinkedIn", href: "https://www.linkedin.com/in/deepak-das-d-76768034a/" }
             ]
@@ -99,9 +99,9 @@ export default function Home() {
         <div className={styles.heroRole}>
           <TextType
             text={[
-              "Elegant Web Experiences",
               "Full Stack Developer",
-              "Minimalist Mindset"
+              "Flutter & Django Expert",
+              "Cloud Infrastructure"
             ]}
             typingSpeed={60}
             pauseDuration={2500}
@@ -199,7 +199,7 @@ export default function Home() {
           <DecryptedText text="build together" animateOn="view" revealDirection="center" />
           <span className={styles.orangeDot}>.</span>
         </h2>
-        <a href="mailto:deepakdas.since2004@gmail.com" className={styles.contactEmail}>deepakdas.since2004@gmail.com</a>
+        <a href="mailto:enquiry@deepakdas.online" className={styles.contactEmail}>enquiry@deepakdas.online</a>
         <EnquirySection />
       </section>
 

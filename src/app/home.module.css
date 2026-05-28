@@ -229,27 +229,29 @@
 
 .expertiseWrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 4rem;
     max-width: 1100px;
     margin: 0 auto;
     padding: 2rem 3rem;
     width: 100%;
+    align-items: start;
 }
 
 .expertiseCategory {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.4rem;
 }
 
 .categoryTitle {
-    font-size: 1.1rem;
-    font-weight: 800;
-    /* Bold heading */
-    color: #000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding-bottom: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #666;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 0.75rem;
 }
 
 .skillsContainer {
@@ -439,6 +441,7 @@
 
 /* Ensure contents sit above grid */
 .hero,
+.sectionAbout,
 .sectionWork,
 .sectionContact,
 .footer,
@@ -451,6 +454,7 @@
 
 /* Re-enable pointer events for interactive elements on top */
 .hero *,
+.sectionAbout *,
 .sectionWork *,
 .sectionContact *,
 .footer *,
