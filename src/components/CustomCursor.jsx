@@ -7,6 +7,7 @@ import styles from './CustomCursor.module.css';
 const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -16,6 +17,10 @@ const CustomCursor = () => {
   const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    Promise.resolve().then(() => {
+      setMounted(true);
+    });
+
     const moveCursor = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -45,7 +50,7 @@ const CustomCursor = () => {
     };
   }, [mouseX, mouseY, isVisible]);
 
-  if (typeof window === 'undefined') return null;
+  if (!mounted) return null;
 
   return (
     <motion.div

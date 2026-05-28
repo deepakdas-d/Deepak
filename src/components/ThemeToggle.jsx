@@ -6,15 +6,16 @@ import './ThemeToggle.css';
 
 const ThemeToggle = () => {
     const [mounted, setMounted] = useState(false);
+    const [theme, setTheme] = useState('light');
 
     useEffect(() => {
         // Use a microtask to avoid synchronous setState in effect
         Promise.resolve().then(() => {
-            setMounted(true);
             const storedTheme = localStorage.getItem('theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
             setTheme(storedTheme);
             document.documentElement.setAttribute('data-theme', storedTheme);
+            setMounted(true);
         });
     }, []);
 
