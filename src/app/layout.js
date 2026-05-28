@@ -14,8 +14,32 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Deepak Das",
-  description: "Deepak Das - Full Stack Developer",
+  title: {
+    default: "Deepak Das | Full Stack Developer",
+    template: "%s | Deepak Das"
+  },
+  description: "Deepak Das is a Full Stack Developer specializing in Flutter, Django, and React.js. Building scalable cross-platform applications and robust backend systems.",
+  keywords: ["Deepak Das", "Full Stack Developer", "Flutter Expert", "Django Developer", "React Developer", "Portfolio", "Software Engineer"],
+  authors: [{ name: "Deepak Das" }],
+  creator: "Deepak Das",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.deepakdas.online",
+    title: "Deepak Das | Full Stack Developer",
+    description: "Full Stack Developer specializing in Flutter, Django, and React.js. Crafting seamless digital experiences and scalable infrastructure.",
+    siteName: "Deepak Das Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deepak Das | Full Stack Developer",
+    description: "Full Stack Developer specializing in Flutter, Django, and React.js.",
+    creator: "@deepakdasd07",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  }
 };
 
 export default function RootLayout({ children }) {
