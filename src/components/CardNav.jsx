@@ -1,6 +1,7 @@
 'use client';
 
 import { useLayoutEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
 import './CardNav.css';
@@ -148,7 +149,7 @@ const CardNav = ({
                     </div>
 
                     <div className="logo-container">
-                        {logo ? <img src={logo} alt={logoAlt} className="logo" /> : <div className="logo-placeholder" style={{ fontWeight: 600, fontSize: '1.25rem', color: '#000' }}>deepak<span style={{ color: '#ea580c' }}>.</span></div>}
+                        {logo ? <Image src={logo} alt={logoAlt} width={40} height={40} className="logo" /> : <div className="logo-placeholder" style={{ fontWeight: 600, fontSize: '1.25rem', color: '#000' }}>deepak<span style={{ color: '#ea580c' }}>.</span></div>}
                     </div>
 
                     <button

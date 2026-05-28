@@ -5,14 +5,20 @@ import { FiSun, FiMoon } from 'react-icons/fi';
 import './ThemeToggle.css';
 
 const ThemeToggle = () => {
-    const [theme, setTheme] = useState('light');
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const storedTheme = localStorage.getItem('theme') ||
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        setTheme(storedTheme);
-        document.documentElement.setAttribute('data-theme', storedTheme);
+        // Use a microtask to avoid synchronous setState in effect
+        Promise.resolve().then(() => {
+            setMounted(true);
+            const storedTheme = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            setTheme(storedTheme);
+            document.documentElement.setAttribute('data-theme', storedTheme);
+        });
     }, []);
+
+    if (!mounted) return null;
 
     const toggleTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';

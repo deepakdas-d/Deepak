@@ -170,7 +170,7 @@ export default function Home() {
                   Proficient in <strong>Flutter, Django, and React.js</strong>, I specialize in RESTful API design, cloud deployment (AWS), and real-time communication using WebSockets and WebRTC. I enjoy bridging the gap between elegant UI and robust infrastructure.
                 </p>
                 <p className={styles.aboutText}>
-                  With a strong background in <strong>DevOps and CI/CD</strong>, I ensure production-grade quality from development to deployment. Whether it's integrating IoT devices or scaling server-side logic, I focus on performance, security, and user-centric design.
+                  With a strong background in <strong>DevOps and CI/CD</strong>, I ensure production-grade quality from development to deployment. Whether it&apos;s integrating IoT devices or scaling server-side logic, I focus on performance, security, and user-centric design.
                 </p>
               </div>
             </div>
