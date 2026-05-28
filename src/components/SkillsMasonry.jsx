@@ -59,7 +59,7 @@ const SkillsMasonry = ({
     }, [width]);
 
     const [visibleCount, setVisibleCount] = useState(initialCount);
-    const hasMounted = useRef(false);
+    const [isMounted, setIsMounted] = useState(false);
     const prevCount = useRef(initialCount);
     const [inView, setInView] = useState(false);
 
@@ -165,7 +165,7 @@ const SkillsMasonry = ({
 
             const isNewItem = index >= prevCount.current;
 
-            if (!hasMounted.current || isNewItem) {
+            if (!isMounted || isNewItem) {
                 const init = getInitialOffset(item);
                 gsap.fromTo(selector,
                     {
@@ -192,10 +192,15 @@ const SkillsMasonry = ({
             }
         });
 
-        hasMounted.current = true;
         prevCount.current = visibleCount;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [grid, blurToFocus, ease, stagger, inView]);
+
+    useEffect(() => {
+        if (inView) {
+            requestAnimationFrame(() => setIsMounted(true));
+        }
+    }, [inView]);
 
     return (
         <div className="skills-masonry-wrapper">
@@ -208,7 +213,7 @@ const SkillsMasonry = ({
                             data-skill={item.id}
                             className="skill-tile"
                             style={{
-                                opacity: hasMounted.current ? undefined : 0,
+                                opacity: isMounted ? undefined : 0,
                             }}
                         >
                             <div
