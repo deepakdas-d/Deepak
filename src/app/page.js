@@ -6,7 +6,7 @@ import SplitText from "../components/SplitText";
 import TextType from "../components/TextType";
 import CardNav from "../components/CardNav";
 import DotGrid from "../components/DotGrid";
-import SkillsMasonry from "../components/SkillsMasonry";
+import SkillsTabbed from "../components/SkillsTabbed";
 import DecryptedText from "../components/DecryptedText";
 import ExperienceSection from "../components/ExperienceSection";
 import EnquirySection from "../components/EnquirySection";
@@ -183,41 +183,7 @@ export default function Home() {
             <span className={styles.orangeDot}>.</span>
           </h2>
 
-          <div className={styles.expertiseWrapper}>
-            {[
-              {
-                title: "Mobile",
-                skills: ["Flutter", "Dart", "Android", "Windows", "Play Store", "Kotlin"]
-              },
-              {
-                title: "Web",
-                skills: ["React.js", "Next.js", "TypeScript", "Admin Portals", "UI/UX"]
-              },
-              {
-                title: "Backend & Server",
-                skills: ["Django", "DRF", "FastAPI", "REST APIs", "WebSockets", "WebRTC", "PostgreSQL", "SQLite", "AWS EC2", "Nginx", "Gunicorn", "SSL/TLS", "GitHub Actions"]
-              },
-              {
-                title: "Third-Party APIs & Cloud",
-                skills: ["Firebase Auth", "Firestore", "Cloud Storage", "FCM", "Razorpay", "Maps API"]
-              },
-              {
-                title: "Architecture & Tools",
-                skills: ["GetX", "Provider", "BLoC", "Clean Architecture", "Git"]
-              }
-            ].map((cat) => (
-              <div key={cat.title} className={`${styles.expertiseCategory} ${styles.glassCard}`}>
-                <h3 className={styles.categoryTitle}>{cat.title}</h3>
-                <SkillsMasonry
-                  skills={cat.skills}
-                  initialCount={cat.skills.length}
-                  animateFrom="bottom"
-                  stagger={0.05}
-                  blurToFocus={true}
-                />
-              </div>
-            ))}
-          </div>
+          <SkillsTabbed />
         </section>
       </SectionReveal>
 
