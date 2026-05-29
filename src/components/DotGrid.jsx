@@ -61,8 +61,8 @@ function parseColor(color) {
 const DotGrid = ({
     dotSize = 16,
     gap = 32,
-    baseColor = '#3a3a3a', // Updated to subtle dark grey out of the box
-    activeColor = '#5227FF',
+    baseColor = 'var(--dot-base)',
+    activeColor = 'var(--dot-active)',
     proximity = 150,
     speedTrigger = 100,
     shockRadius = 250,
