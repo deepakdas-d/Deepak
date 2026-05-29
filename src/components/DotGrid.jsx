@@ -96,8 +96,10 @@ const DotGrid = ({
             setResolvedActive(prev => ({ ...parseColor(activeColor), raw: activeColor }));
         };
 
-        // Initial resolve with a small delay to ensure CSS variables are ready
-        const timer = setTimeout(resolve, 50);
+        // Initial resolve with a delay to ensure CSS variables are ready
+        const timer = setTimeout(resolve, 150);
+        // Secondary resolve to catch late-loading CSS (e.g. Tailwind CDN, fonts)
+        const timer2 = setTimeout(resolve, 500);
 
         // Listen for theme changes as well
         const observer = new MutationObserver((mutations) => {
@@ -113,6 +115,7 @@ const DotGrid = ({
 
         return () => {
             clearTimeout(timer);
+            clearTimeout(timer2);
             observer.disconnect();
         };
     }, [baseColor, activeColor]);
