@@ -19,8 +19,8 @@
   --nav-bg: rgba(255, 255, 255, 0.8);
   --nav-btn-bg: #000000;
   --nav-btn-text: #ffffff;
-  --dot-base: rgba(0, 0, 0, 0.4);
-  --dot-active: rgba(0, 0, 0, 0.8);
+  --dot-base: rgba(0, 0, 0, 0.445);
+  --dot-active: rgba(0, 0, 0, 0.827);
   --loader-bg: #ffffff;
   --loader-text: #000000;
 
