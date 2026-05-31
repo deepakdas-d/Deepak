@@ -16,6 +16,8 @@ import ScrollProgress from "../components/ScrollProgress";
 import CustomCursor from "../components/CustomCursor";
 import BackToTop from "../components/BackToTop";
 import SectionDivider from "../components/SectionDivider";
+import LoaderAnimation from "../components/ThreeDLoader";
+
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiDownload } from 'react-icons/fi';
 import styles from './home.module.css';
@@ -29,7 +31,7 @@ export default function Home() {
     // Simulate a brief loading sequence for the skeleton logic
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -54,8 +56,9 @@ export default function Home() {
 
       {/* Premium Loading Screen */}
       <div className={`${styles.loadingOverlay} ${!loading ? styles.hidden : ''}`}>
-        <div className={styles.loaderInitials}>DD</div>
-        <div className={styles.loaderLine}></div>
+        <div className={styles.loaderLogoContainer}>
+          <LoaderAnimation />
+        </div>
         <div className={styles.loaderTagline}>Full Stack Developer</div>
       </div>
 

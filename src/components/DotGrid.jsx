@@ -18,44 +18,45 @@ const throttle = (func, limit) => {
 function parseColor(color) {
     if (typeof window === 'undefined') return { r: 0, g: 0, b: 0, a: 1 };
 
-    let finalColor = color.trim();
+    let r = 0, g = 0, b = 0, a = 1;
 
-    // Resolve CSS variables
-    if (finalColor.startsWith('var(')) {
-        const varName = finalColor.match(/var\((--[^)]+)\)/)?.[1];
-        if (varName) {
-            const resolved = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-            if (resolved) finalColor = resolved;
+    try {
+        // Use a temporary element to let the browser resolve the color (including CSS variables)
+        const temp = document.createElement('div');
+        temp.style.color = color;
+        temp.style.display = 'none';
+        document.documentElement.appendChild(temp);
+
+        const computed = getComputedStyle(temp).color;
+        document.documentElement.removeChild(temp);
+
+        // Modern browsers return "rgb(r, g, b)" or "rgba(r, g, b, a)"
+        // Note: some browsers might return the new space-separated syntax "rgb(r g b / a)"
+        const match = computed.match(/rgba?\((\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+))?\)/);
+
+        if (match) {
+            r = parseInt(match[1], 10);
+            g = parseInt(match[2], 10);
+            b = parseInt(match[3], 10);
+            a = match[4] !== undefined ? parseFloat(match[4]) : 1;
+        } else if (computed.startsWith('#')) {
+            // Handle hex if returned
+            const hex = computed.slice(1);
+            if (hex.length === 3) {
+                r = parseInt(hex[0] + hex[0], 16);
+                g = parseInt(hex[1] + hex[1], 16);
+                b = parseInt(hex[2] + hex[2], 16);
+            } else {
+                r = parseInt(hex.slice(0, 2), 16);
+                g = parseInt(hex.slice(2, 4), 16);
+                b = parseInt(hex.slice(4, 6), 16);
+            }
         }
+    } catch (e) {
+        console.warn('DotGrid: Failed to parse color', color, e);
     }
 
-    // Handle hex
-    if (finalColor.startsWith('#')) {
-        const m = finalColor.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
-        if (m) {
-            return {
-                r: parseInt(m[1], 16),
-                g: parseInt(m[2], 16),
-                b: parseInt(m[3], 16),
-                a: 1
-            };
-        }
-    }
-
-    // Handle rgb/rgba
-    const rgbaMatch = finalColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
-    if (rgbaMatch) {
-        return {
-            r: parseInt(rgbaMatch[1], 10),
-            g: parseInt(rgbaMatch[2], 10),
-            b: parseInt(rgbaMatch[3], 10),
-            a: rgbaMatch[4] !== undefined ? parseFloat(rgbaMatch[4]) : 1
-        };
-    }
-
-    // If it's a known color name or fails, return a sensible default based on current theme
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? { r: 255, g: 255, b: 255, a: 0.1 } : { r: 0, g: 0, b: 0, a: 0.1 };
+    return { r, g, b, a };
 }
 
 const DotGrid = ({
@@ -103,12 +104,15 @@ const DotGrid = ({
 
         // Listen for theme changes as well
         const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-                    // Small delay to let CSS transitions start/finish if needed
-                    setTimeout(resolve, 50);
-                }
-            });
+            const themeChanged = mutations.some(m =>
+                m.type === 'attributes' && m.attributeName === 'data-theme'
+            );
+            if (themeChanged) {
+                // Immediate resolve + delayed resolve for CSS transitions
+                resolve();
+                setTimeout(resolve, 50);
+                setTimeout(resolve, 200);
+            }
         });
 
         observer.observe(document.documentElement, { attributes: true });
@@ -192,7 +196,7 @@ const DotGrid = ({
                 const dy = dot.cy - py;
                 const dsq = dx * dx + dy * dy;
 
-                let style = baseRgb.raw;
+                let style = `rgba(${baseRgb.r},${baseRgb.g},${baseRgb.b},${baseRgb.a})`;
                 if (dsq <= proxSq) {
                     const dist = Math.sqrt(dsq);
                     const t = 1 - dist / proximity;
@@ -205,7 +209,7 @@ const DotGrid = ({
 
                 ctx.save();
                 ctx.translate(ox, oy);
-                ctx.fillStyle = style.startsWith('var(') ? `rgba(${baseRgb.r},${baseRgb.g},${baseRgb.b},${baseRgb.a})` : style;
+                ctx.fillStyle = style;
                 ctx.fill(circlePath);
                 ctx.restore();
             }

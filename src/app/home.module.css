@@ -24,65 +24,33 @@
     visibility: hidden;
 }
 
-.loaderInitials {
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--loader-text);
-    animation: initialsReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.loaderLogoContainer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .loaderTagline {
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--muted);
     opacity: 0;
-    animation: taglineFade 0.6s ease 0.5s forwards;
-}
-
-.loaderLine {
-    width: 60px;
-    height: 2px;
-    background: var(--border-medium);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-}
-
-.loaderLine::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--accent);
-    transform: translateX(-100%);
-    animation: lineSlide 1.2s cubic-bezier(12, 1, 0.3, 1) 0.3s forwards;
-}
-
-@keyframes initialsReveal {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-        filter: blur(8px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0px);
-    }
+    animation: taglineFade 0.8s ease 2s forwards;
+    pointer-events: none;
+    z-index: 10;
 }
 
 @keyframes taglineFade {
     to {
         opacity: 1;
-    }
-}
-
-@keyframes lineSlide {
-    to {
-        transform: translateX(100%);
     }
 }
 
