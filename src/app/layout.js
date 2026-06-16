@@ -39,10 +39,31 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: "https://www.deepakdas.online",
   }
 };
 
+export const viewport = {
+  themeColor: "#0a0a0a",
+};
+
 export default function RootLayout({ children }) {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Deepak Das",
+    "jobTitle": "Full Stack Developer",
+    "url": "https://www.deepakdas.online",
+    "sameAs": [
+      "https://github.com/deepakdas-d",
+      "https://www.linkedin.com/in/deepak-das-d-76768034a/"
+    ],
+    "email": "mailto:enquiry@deepakdas.online",
+    "knowsAbout": ["Flutter", "Django", "React.js", "AWS", "WebRTC"]
+  };
+
   return (
     <html
       lang="en"
@@ -50,6 +71,10 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

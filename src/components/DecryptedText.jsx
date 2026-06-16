@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'motion/react';

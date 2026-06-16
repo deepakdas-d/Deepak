@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import SplitText from "../components/SplitText";
 import TextType from "../components/TextType";
 import CardNav from "../components/CardNav";
-import DotGrid from "../components/DotGrid";
 import SkillsTabbed from "../components/SkillsTabbed";
 import DecryptedText from "../components/DecryptedText";
 import ExperienceSection from "../components/ExperienceSection";
@@ -13,13 +13,15 @@ import EnquirySection from "../components/EnquirySection";
 import SectionReveal from "../components/SectionReveal";
 import ThemeToggle from "../components/ThemeToggle";
 import ScrollProgress from "../components/ScrollProgress";
-import CustomCursor from "../components/CustomCursor";
 import BackToTop from "../components/BackToTop";
 import SectionDivider from "../components/SectionDivider";
-import LoaderAnimation from "../components/ThreeDLoader";
+
+const DotGrid = dynamic(() => import("../components/DotGrid"), { ssr: false });
+const LoaderAnimation = dynamic(() => import("../components/ThreeDLoader"), { ssr: false });
+const CustomCursor = dynamic(() => import("../components/CustomCursor"), { ssr: false });
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FiDownload } from 'react-icons/fi';
+import { FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import styles from './home.module.css';
 
 export default function Home() {
@@ -96,6 +98,9 @@ export default function Home() {
 
       {/* Hero */}
       <main className={styles.hero}>
+        <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
+          Deepak Das | Full Stack Developer | Flutter & Django Expert
+        </h1>
         <p className={styles.heroEyebrow}>
           <DecryptedText text="Hello, I'm" animateOn="view" revealDirection="start" />
         </p>
@@ -154,7 +159,7 @@ export default function Home() {
             >
               <Image
                 src="/images/deepak.jpeg"
-                alt="Deepak Das"
+                alt="Deepak Das, Full Stack Developer specializing in React and Django"
                 width={400}
                 height={400}
                 className={styles.aboutImage}
@@ -167,7 +172,7 @@ export default function Home() {
               </h2>
               <div className={styles.aboutBios}>
                 <p className={styles.aboutText}>
-                  I am a <strong>Full Stack Developer</strong> passionate about crafting seamless digital experiences. My expertise lies in building <strong>cross-platform mobile applications</strong> and <strong>scalable backend systems</strong> that solve real-world problems.
+                  I am a <strong>Full Stack developer</strong> based in India, specializing in <strong>React and Django</strong>. I am passionate about crafting seamless digital experiences, from building cross-platform mobile applications as a <strong>Flutter developer in Kerala</strong>, to designing scalable backend systems that solve real-world problems.
                 </p>
                 <p className={styles.aboutText}>
                   Proficient in <strong>Flutter, Django, and React.js</strong>, I specialize in RESTful API design, cloud deployment (AWS), and real-time communication using WebSockets and WebRTC. I enjoy bridging the gap between elegant UI and robust infrastructure.
@@ -224,9 +229,10 @@ export default function Home() {
           <span>
             <DecryptedText text="© 2026 Deepak Das" animateOn="view" revealDirection="start" />
           </span>
-          <div className={styles.footerLinks}>
-            <a href="https://github.com/deepakdas-d" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/deepak-das-d-76768034a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <div className={styles.footerLinks} style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <a href="mailto:enquiry@deepakdas.online" aria-label="Email Me" style={{ fontSize: '1.25rem' }}><FiMail /></a>
+            <a href="https://github.com/deepakdas-d" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" style={{ fontSize: '1.25rem' }}><FiGithub /></a>
+            <a href="https://www.linkedin.com/in/deepak-das-d-76768034a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" style={{ fontSize: '1.25rem' }}><FiLinkedin /></a>
           </div>
         </footer>
       </SectionReveal>
