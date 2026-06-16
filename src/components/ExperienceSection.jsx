@@ -11,13 +11,7 @@ const experiences = [
         role: "Full Stack Developer",
         duration: "April 2025 – Present",
         tech: "Flutter | Django | AWS EC2 | Nginx",
-        points: [
-            "Built a cross-platform Flutter application for real-time booking and tracking of home healthcare services.",
-            "Designed and developed secure RESTful APIs with JWT-based authentication and multi-role access control (admin, staff, user).",
-            "Deployed Django backend on AWS EC2 with Nginx reverse proxy, configured SSL/TLS via Let’s Encrypt, and managed DNS/domain routing.",
-            "Managed Linux server environment including systemd service configuration, environment variables, and Gunicorn process management.",
-            "Implemented structured API exception handling, retry logic, and GetX-based reactive state management on the Flutter client."
-        ]
+        description: "Built a cross-platform Flutter application for real-time booking and tracking of home healthcare services. I designed and developed secure RESTful APIs with JWT-based authentication and multi-role access control (admin, staff, user). To ensure high availability, I deployed the Django backend on AWS EC2 with an Nginx reverse proxy, configured SSL/TLS via Let’s Encrypt, and managed DNS/domain routing. I also implemented structured API exception handling, retry logic, and GetX-based reactive state management on the Flutter client, ensuring a seamless user experience even under poor network conditions."
     },
     {
         id: 2,
@@ -26,11 +20,7 @@ const experiences = [
         role: "Full Stack Developer",
         duration: "April 2025 – Present",
         tech: "React.js | Django | GitHub Actions | Nginx",
-        points: [
-            "Developed a modular React.js frontend with role-based workflows for issue tracking and resolution management.",
-            "Built reusable component architecture with centralized state management and clean separation of concerns.",
-            "Automated build and deployment using GitHub Actions CI/CD; served production build via Nginx static hosting on Linux."
-        ]
+        description: "Developed a modular React.js frontend with role-based workflows for comprehensive issue tracking and resolution management. By building a reusable component architecture with centralized state management, I achieved a clean separation of concerns and accelerated feature delivery. Furthermore, I automated the entire build and deployment process using GitHub Actions CI/CD pipelines, serving the production build efficiently via Nginx static hosting on a Linux environment."
     },
     {
         id: 3,
@@ -40,14 +30,7 @@ const experiences = [
         duration: "Past Experience",
         link: "https://play.google.com/store/apps/details?id=com.qliqcare.app",
         tech: "Django | DRF | React.js | Flutter | AWS",
-        points: [
-            "Architected and delivered a complete multi-role platform (caretaker, user, admin) end-to-end within 3 months as sole architect and DevOps engineer.",
-            "Built backend using Django and DRF with role-based secure API design, structured endpoint organization, and PostgreSQL database.",
-            "Implemented WebSocket-based real-time communication for live chat, audio, and video call coordination.",
-            "Integrated Razorpay payment gateway for advance and total payment processing workflows.",
-            "Built Superadmin Dashboard using React.js covering booking management, complaint handling, and reporting modules.",
-            "Handled full server deployment: AWS EC2 provisioning, Nginx reverse proxy, SSL/TLS, Gunicorn setup, and production hardening."
-        ]
+        description: "Architected and delivered a complete multi-role healthcare platform (caretaker, user, admin) end-to-end within just 3 months, acting as the sole architect and DevOps engineer. I built the backend using Django and DRF with role-based secure API design and a PostgreSQL database. To facilitate seamless remote consultations, I implemented WebSocket-based real-time communication for live chat, audio, and video call coordination. I also integrated the Razorpay payment gateway for secure advance and total payment processing, and deployed the entire infrastructure on AWS EC2 with Nginx, SSL/TLS, and Gunicorn."
     },
     {
         id: 4,
@@ -56,11 +39,7 @@ const experiences = [
         role: "Full Stack Developer",
         duration: "April 2025 – Present",
         tech: "Flutter | Firebase | Kotlin",
-        points: [
-            "Developed user, maker, and admin Flutter apps with Firebase Authentication, Firestore, and Cloud Storage.",
-            "Integrated FCM push notifications and native Android background services using Kotlin.",
-            "Managed lifecycle-aware components, runtime permissions, and memory optimization across all roles."
-        ]
+        description: "Engineered comprehensive user, maker, and admin Flutter applications leveraging Firebase Authentication, Firestore, and Cloud Storage for real-time data synchronization. To drive user engagement, I integrated FCM push notifications and engineered native Android background services using Kotlin. Throughout the development lifecycle, I meticulously managed lifecycle-aware components, runtime permissions, and memory optimization to deliver a smooth experience across all operational roles."
     },
     {
         id: 5,
@@ -70,10 +49,7 @@ const experiences = [
         duration: "April 2025 – Present",
         link: "https://play.google.com/store/apps/details?id=com.techfifo.photomerge",
         tech: "Flutter | Firebase | Play Store",
-        points: [
-            "Built a cross-platform design and editing app using Flutter with Firebase Auth, Firestore, and Cloud Storage.",
-            "Managed app signing, generated release builds (APK/AAB), and published to Google Play Store."
-        ]
+        description: "Built a robust cross-platform design and editing application utilizing Flutter, integrated with Firebase Auth, Firestore, and Cloud Storage for seamless cloud synchronization of user projects. I spearheaded the entire release cycle, managing app signing, generating optimized release builds (APK/AAB), and successfully publishing the application to the Google Play Store, resulting in a significantly expanded user base."
     },
     {
         id: 6,
@@ -83,10 +59,7 @@ const experiences = [
         duration: "April 2025 – Present",
         link: "https://play.google.com/store/apps/details?id=com.agrita.app",
         tech: "Flutter | Django REST Framework | IoT",
-        points: [
-            "Developed a Flutter-based control interface for IoT device operations integrated with a Django REST Framework backend.",
-            "Implemented secure device communication protocols and real-time status monitoring with a responsive industrial UI."
-        ]
+        description: "Developed an intuitive Flutter-based control interface designed for complex IoT device operations, fully integrated with a robust Django REST Framework backend. I successfully implemented highly secure device communication protocols and established real-time status monitoring mechanisms, providing users with a highly responsive, industrial-grade user interface for managing critical motor valve hardware."
     },
     {
         id: 7,
@@ -95,11 +68,7 @@ const experiences = [
         role: "Flutter Developer",
         duration: "Freelance",
         tech: "Flutter | Firebase | SQLite | Bluetooth",
-        points: [
-            "Developed a custom POS billing application for Android and Windows as an independent freelance engagement.",
-            "Implemented Bluetooth thermal printer integration for instant bill generation and printing.",
-            "Built inventory and stock management, sales monitoring, and transaction history modules."
-        ]
+        description: "Created a comprehensive, custom POS billing application targeting both Android and Windows environments as an independent freelance developer. A key technical achievement was the successful implementation of Bluetooth thermal printer integration, enabling instant, reliable bill generation. Additionally, I architected robust modules for local inventory and stock management using SQLite, alongside real-time sales monitoring and transaction history analytics."
     },
     {
         id: 8,
@@ -108,12 +77,7 @@ const experiences = [
         role: "Flutter Developer",
         duration: "Personal",
         tech: "Flutter | WebRTC | Firebase | BLoC",
-        points: [
-            "Independently built a real-time P2P communication app featuring messaging, audio, and video calling using WebRTC and Firebase.",
-            "Built WebRTC signaling architecture using Firestore; integrated FCM for incoming call push notifications.",
-            "Implemented background call handling, lifecycle management, reconnect logic, and WebRTC session stability on Android.",
-            "Used BLoC architecture for scalable state management and go router for navigation."
-        ]
+        description: "Conceptualized and independently built a real-time peer-to-peer communication application featuring secure messaging, high-quality audio, and video calling. I engineered a robust WebRTC signaling architecture backed by Firestore and integrated FCM to ensure reliable incoming call push notifications. To guarantee session stability, I implemented sophisticated background call handling, comprehensive lifecycle management, and automatic reconnect logic on Android, utilizing the BLoC architecture for scalable and predictable state management."
     }
 ];
 
@@ -154,11 +118,9 @@ export default function ExperienceSection() {
                             ))}
                         </div>
 
-                        <ul className={styles.pointsList}>
-                            {exp.points.map((pt, idx) => (
-                                <li key={idx}>{pt}</li>
-                            ))}
-                        </ul>
+                        <p className={styles.descriptionText}>
+                            {exp.description}
+                        </p>
                     </div>
                 ))}
             </div>

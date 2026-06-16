@@ -19,7 +19,7 @@ export const metadata = {
     template: "%s | Deepak Das"
   },
   description: "Deepak Das is a Full Stack Developer specializing in Flutter, Django, and React.js. Building scalable cross-platform applications and robust backend systems.",
-  keywords: ["Deepak Das", "Full Stack Developer", "Flutter Expert", "Django Developer", "React Developer", "Portfolio", "Software Engineer"],
+  keywords: ["Deepak Das", "Full Stack Developer", "Flutter Expert", "Django Developer", "React Developer", "Portfolio", "Software Engineer", "hire Flutter developer Kerala", "Django REST API developer", "cross-platform app developer India"],
   authors: [{ name: "Deepak Das" }],
   creator: "Deepak Das",
   openGraph: {
@@ -29,6 +29,14 @@ export const metadata = {
     title: "Deepak Das | Full Stack Developer",
     description: "Full Stack Developer specializing in Flutter, Django, and React.js. Crafting seamless digital experiences and scalable infrastructure.",
     siteName: "Deepak Das Portfolio",
+    images: [
+      {
+        url: 'https://www.deepakdas.online/images/deepak.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Deepak Das - Full Stack Developer'
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
