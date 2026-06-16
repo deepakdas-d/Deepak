@@ -31,10 +31,10 @@ export const metadata = {
     siteName: "Deepak Das Portfolio",
     images: [
       {
-        url: 'https://www.deepakdas.online/images/deepak.jpeg',
+        url: 'https://www.deepakdas.online/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Deepak Das - Full Stack Developer'
+        alt: 'Deepak Das | Full Stack Developer'
       }
     ],
   },
@@ -43,6 +43,7 @@ export const metadata = {
     title: "Deepak Das | Full Stack Developer",
     description: "Full Stack Developer specializing in Flutter, Django, and React.js.",
     creator: "@deepakdasd07",
+    images: ['https://www.deepakdas.online/og-image.png'],
   },
   robots: {
     index: true,
@@ -50,7 +51,7 @@ export const metadata = {
   },
   metadataBase: new URL("https://www.deepakdas.online"),
   alternates: {
-    canonical: "/",
+    canonical: "https://www.deepakdas.online",
   }
 };
 
