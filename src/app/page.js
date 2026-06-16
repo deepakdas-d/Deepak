@@ -172,7 +172,7 @@ export default function Home() {
               </h2>
               <div className={styles.aboutBios}>
                 <p className={styles.aboutText}>
-                  I am a <strong>Full Stack developer</strong> based in India, specializing in <strong>React and Django</strong>. I am passionate about crafting seamless digital experiences, from building cross-platform mobile applications as a <strong>Flutter developer in Kerala</strong>, to designing scalable backend systems that solve real-world problems.
+                  I am a <strong>Full Stack developer</strong> based in India, specializing in <strong>React and Django</strong>. I am passionate about crafting seamless digital experiences, from building cross-platform mobile applications as a <strong>Flutter developer Kerala</strong>, to designing scalable backend systems that solve real-world problems.
                 </p>
                 <p className={styles.aboutText}>
                   Proficient in <strong>Flutter, Django, and React.js</strong>, I specialize in RESTful API design, cloud deployment (AWS), and real-time communication using WebSockets and WebRTC. I enjoy bridging the gap between elegant UI and robust infrastructure.
@@ -230,9 +230,9 @@ export default function Home() {
             <DecryptedText text="© 2026 Deepak Das" animateOn="view" revealDirection="start" />
           </span>
           <div className={styles.footerLinks} style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <a href="mailto:enquiry@deepakdas.online" aria-label="Email Me" style={{ fontSize: '1.25rem' }}><FiMail /></a>
-            <a href="https://github.com/deepakdas-d" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" style={{ fontSize: '1.25rem' }}><FiGithub /></a>
-            <a href="https://www.linkedin.com/in/deepak-das-d-76768034a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" style={{ fontSize: '1.25rem' }}><FiLinkedin /></a>
+            <a href="mailto:enquiry@deepakdas.online" aria-label="Email" style={{ fontSize: '1.25rem' }}><FiMail /></a>
+            <a href="https://github.com/deepakdas-d" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style={{ fontSize: '1.25rem' }}><FiGithub /></a>
+            <a href="https://www.linkedin.com/in/deepak-das-d-76768034a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ fontSize: '1.25rem' }}><FiLinkedin /></a>
           </div>
         </footer>
       </SectionReveal>

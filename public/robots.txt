@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /private/
-
 Sitemap: https://www.deepakdas.online/sitemap.xml

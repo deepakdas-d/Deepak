@@ -50,20 +50,6 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Deepak Das",
-    "jobTitle": "Full Stack Developer",
-    "url": "https://www.deepakdas.online",
-    "sameAs": [
-      "https://github.com/deepakdas-d",
-      "https://www.linkedin.com/in/deepak-das-d-76768034a/"
-    ],
-    "email": "mailto:enquiry@deepakdas.online",
-    "knowsAbout": ["Flutter", "Django", "React.js", "AWS", "WebRTC"]
-  };
-
   return (
     <html
       lang="en"
@@ -73,7 +59,19 @@ export default function RootLayout({ children }) {
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Deepak Das",
+            "url": "https://www.deepakdas.online",
+            "jobTitle": "Full Stack Developer",
+            "email": "enquiry@deepakdas.online",
+            "sameAs": [
+              "https://github.com/deepakdas-d",
+              "https://www.linkedin.com/in/deepak-das-d-76768034a/"
+            ],
+            "knowsAbout": ["Flutter", "Django", "React.js", "AWS", "FastAPI"]
+          })}}
         />
         <script
           dangerouslySetInnerHTML={{
