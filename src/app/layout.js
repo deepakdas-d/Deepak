@@ -40,8 +40,9 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  metadataBase: new URL("https://www.deepakdas.online"),
   alternates: {
-    canonical: "https://www.deepakdas.online",
+    canonical: "/",
   }
 };
 
