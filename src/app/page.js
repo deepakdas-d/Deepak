@@ -139,7 +139,8 @@ export default function Home() {
             textColor: "var(--fg)",
             links: [
               { label: "Experience", ariaLabel: "About Experience", href: "#experience" },
-              { label: "Skills", ariaLabel: "About Skills", href: "#expertise" }
+              { label: "Skills", ariaLabel: "About Skills", href: "#expertise" },
+              { label: "Blog", ariaLabel: "Blog", href: "/blog" }
             ]
           },
           {
