@@ -18,8 +18,22 @@ export const metadata = {
     default: "Deepak Das | Full Stack Developer | Flutter, Django & AWS Developer Kerala India",
     template: "%s | Deepak Das | Full Stack Developer"
   },
-  description: "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
-  keywords: ["Deepak Das", "Full Stack Developer", "Flutter Developer", "Django Developer", "AWS", "Firebase", "Kerala", "India", "Kochi", "Remote Developer", "Portfolio", "Software Engineer"],
+  description: "Deepak Das is a Full Stack Developer from Kerala, India, specializing in Flutter, Django, and React.js. Building scalable cross-platform apps and robust backend systems.",
+  keywords: [
+    "Deepak Das",
+    "Full Stack Developer",
+    "Flutter Developer Kerala",
+    "Django Developer India",
+    "React Developer",
+    "Cross-Platform App Developer",
+    "Mobile App Developer Kerala",
+    "Backend Developer India",
+    "Flutter Expert",
+    "REST API Developer",
+    "AWS Developer India",
+    "Software Engineer Kerala",
+    "Hire Flutter Developer"
+  ],
   authors: [{ name: "Deepak Das" }],
   creator: "Deepak Das",
   openGraph: {
@@ -29,7 +43,7 @@ export const metadata = {
     title: "Deepak Das | Full Stack Developer",
     description: "Flutter, Android, Backend & Web Developer",
     siteName: "Deepak Das Portfolio",
-    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das Portfolio" }],
+    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das - Full Stack Developer Kerala" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -68,74 +82,53 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
+        {/* Person Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify([
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "@id": "https://www.deepakdas.online/#person",
-              "name": "Deepak Das",
-              "jobTitle": "Full Stack Developer",
-              "url": "https://www.deepakdas.online",
-              "image": "https://www.deepakdas.online/images/deepak.jpeg",
-              "description": "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
-              "email": "enquiry@deepakdas.online",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Kochi",
-                "addressRegion": "Kerala",
-                "addressCountry": "India"
-              },
-              "sameAs": [
-                "https://github.com/deepakdas-d",
-                "https://www.linkedin.com/in/deepak-das-d-76768034a/"
-              ],
-              "knowsAbout": ["Flutter", "Django", "React.js", "AWS", "Firebase", "WebRTC", "FastAPI"],
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Freelance / Remote Developer"
-              }
+          dangerouslySetInnerHTML={{__html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Deepak Das",
+            "jobTitle": "Full Stack Developer",
+            "description": "Full Stack Developer from Kerala, India specializing in Flutter, Django, and React.js",
+            "url": "https://www.deepakdas.online",
+            "email": "enquiry@deepakdas.online",
+            "image": "https://www.deepakdas.online/images/deepak.jpeg",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Kerala",
+              "addressCountry": "IN"
             },
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Deepak Das Portfolio",
-              "url": "https://www.deepakdas.online",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://www.deepakdas.online/?s={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "ProfilePage",
-              "dateCreated": "2024-01-01T00:00:00+05:30",
-              "dateModified": new Date().toISOString(),
-              "mainEntity": {
-                "@id": "https://www.deepakdas.online/#person"
-              }
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.deepakdas.online/"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Experience",
-                  "item": "https://www.deepakdas.online/#experience"
-                }
-              ]
+            "sameAs": [
+              "https://github.com/deepakdas-d",
+              "https://www.linkedin.com/in/deepak-das-d-76768034a/"
+            ],
+            "knowsAbout": [
+              "Flutter", "Dart", "Django", "React.js",
+              "AWS", "WebSockets", "WebRTC", "REST API",
+              "Full Stack Development", "DevOps"
+            ],
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Techfifo Innovations"
             }
-          ])}}
+          })}}
+        />
+
+        {/* WebSite Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{__html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Deepak Das Portfolio",
+            "url": "https://www.deepakdas.online",
+            "description": "Portfolio of Deepak Das, Full Stack Developer from Kerala, India",
+            "author": {
+              "@type": "Person",
+              "name": "Deepak Das"
+            }
+          })}}
         />
         <script
           dangerouslySetInnerHTML={{

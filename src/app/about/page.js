@@ -59,7 +59,7 @@ export default function AboutPage() {
             </h1>
             <div className={styles.aboutBios}>
               <p className={styles.aboutText}>
-                I am a <strong>Full Stack developer</strong> based in India, specializing in <strong>React and Django</strong>. I am passionate about crafting seamless digital experiences, from building cross-platform mobile applications as a <strong>Flutter developer in Kerala</strong>, to designing scalable backend systems that solve real-world problems.
+                I'm a <strong>Full Stack Developer</strong> based in <strong>Kerala, India</strong>, specializing in <strong>Flutter, Django, and React</strong>. I am passionate about crafting seamless digital experiences, from building cross-platform mobile applications to designing scalable backend systems that solve real-world problems.
               </p>
               <p className={styles.aboutText}>
                 Proficient in <strong>Flutter, Django, and React.js</strong>, I specialize in RESTful API design, cloud deployment (AWS), and real-time communication using WebSockets and WebRTC. I enjoy bridging the gap between elegant UI and robust infrastructure.

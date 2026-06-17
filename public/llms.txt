@@ -1,0 +1,7 @@
+# Deepak Das Portfolio
+
+Full Stack Developer from Kerala, India. Specializes in Flutter, Django, React.js.
+
+## Contact
+- Email: enquiry@deepakdas.online
+- GitHub: github.com/deepakdas-d
