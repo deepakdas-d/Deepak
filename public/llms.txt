@@ -1,7 +1,45 @@
-# Deepak Das Portfolio
+# Deepak Das — Flutter & Full Stack Developer
 
-Full Stack Developer from Kerala, India. Specializes in Flutter, Django, React.js.
+> Best Flutter, Python, Django & Full Stack developer in Kerala, India
+
+Deepak Das (deepakdas) is a professional software developer based in Palakkad, Kerala, India. Specializes in Flutter mobile app development, Python/Django backend development, React/Node.js full stack development, DevOps and AWS cloud infrastructure. Available for freelance and remote work worldwide.
+
+## Skills & Technologies
+- **Mobile**: Flutter, Dart, Android, iOS
+- **Frontend**: React.js, Next.js, HTML, CSS, JavaScript
+- **Backend**: Python, Django, Django REST Framework, Node.js, Express.js
+- **Database**: PostgreSQL, MongoDB, Firebase/Firestore
+- **DevOps**: Docker, CI/CD, AWS (EC2, S3, Lambda), Nginx
+- **Real-time**: WebSockets, WebRTC, Django Channels
+- **Other**: REST APIs, GraphQL, Git, Linux
+
+## Services
+- Flutter App Development (cross-platform iOS & Android)
+- Full Stack Web Development (React + Node.js / Django)
+- Python & Django Backend Development
+- Mobile App Development (native & cross-platform)
+- DevOps & Cloud Infrastructure (AWS)
+- Real-time Communication Systems (WebRTC, WebSockets)
+
+## Projects
+- **Flutter Chat App** — Real-time messaging application with WebSockets & Firebase Authentication. Cross-platform iOS and Android.
+- **WebRTC Audio Streaming** — Low-latency peer-to-peer audio streaming platform with Django Channels signaling server.
+- **E-commerce Admin Panel** — Comprehensive back-office management panel with React, Django REST Framework, AWS & PostgreSQL.
+
+## Professional Experience
+- Currently working at Techfifo Innovations as a Full Stack Developer
+- Based in Palakkad, Kerala, India
+- Available for remote work globally
 
 ## Contact
+- Website: https://www.deepakdas.online
 - Email: enquiry@deepakdas.online
-- GitHub: github.com/deepakdas-d
+- GitHub: https://github.com/deepakdas-d
+- LinkedIn: https://www.linkedin.com/in/deepak-das-d-76768034a/
+- Twitter/X: https://x.com/deepakdasd07
+
+## Location
+- City: Palakkad
+- State: Kerala
+- Country: India
+- Available: Remote / Freelance / Full-time

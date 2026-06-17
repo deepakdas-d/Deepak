@@ -5,11 +5,23 @@ import DecryptedText from '../../../components/DecryptedText';
 import styles from '../../home.module.css';
 
 export const metadata = {
-  title: "WebRTC Audio Streaming Case Study | Deepak Das",
-  description: "A detailed case study on implementing real-time WebRTC audio streaming for robust, low-latency communication.",
+  title: "WebRTC Audio Streaming Case Study – Built with Django by Deepak Das",
+  description: "Case study: How Deepak Das built a low-latency WebRTC audio streaming platform using Django Channels, React & WebSockets. Full stack development from Kerala.",
   alternates: {
     canonical: 'https://www.deepakdas.online/projects/webrtc-audio-streaming',
-  }
+  },
+  openGraph: {
+    title: "WebRTC Audio Streaming | Deepak Das – Django & Full Stack Developer Kerala",
+    description: "Low-latency WebRTC audio streaming with Django Channels & React — built by Deepak Das, full stack developer from Kerala.",
+    url: "https://www.deepakdas.online/projects/webrtc-audio-streaming",
+    images: [{ url: "https://www.deepakdas.online/og-image.jpg", width: 1200, height: 630, alt: "WebRTC Audio Streaming by Deepak Das" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WebRTC Audio Streaming Case Study | Deepak Das",
+    description: "Real-time audio streaming with WebRTC & Django Channels — by Deepak Das, full stack developer from Kerala.",
+    images: ["https://www.deepakdas.online/og-image.jpg"],
+  },
 };
 
 export default function WebRTCAudioStreaming() {
@@ -47,7 +59,7 @@ export default function WebRTCAudioStreaming() {
           <p>
             This project focuses on building a low-latency, real-time audio streaming platform utilizing WebRTC. The architecture is designed to handle peer-to-peer audio communication seamlessly, incorporating signaling servers built with Django Channels.
           </p>
-          <br/>
+          <br />
           <h2>Technologies Used</h2>
           <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
             <li>WebRTC</li>

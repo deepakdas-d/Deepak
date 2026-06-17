@@ -5,11 +5,23 @@ import DecryptedText from '../../../components/DecryptedText';
 import styles from '../../home.module.css';
 
 export const metadata = {
-  title: "Flutter Chat App Case Study | Deepak Das",
-  description: "A comprehensive case study on building a scalable, real-time Flutter chat application with seamless messaging and intuitive UI.",
+  title: "Flutter Chat App Case Study – Real-time Messaging App by Deepak Das",
+  description: "Case study: How Deepak Das, a Flutter developer in Kerala, built a scalable real-time chat application using Flutter, Firebase & WebSockets. Cross-platform iOS and Android.",
   alternates: {
     canonical: 'https://www.deepakdas.online/projects/flutter-chat-app',
-  }
+  },
+  openGraph: {
+    title: "Flutter Chat App Case Study | Deepak Das – Flutter Developer Kerala",
+    description: "How a Kerala-based Flutter developer built a real-time chat app with Firebase, WebSockets & cross-platform performance on iOS and Android.",
+    url: "https://www.deepakdas.online/projects/flutter-chat-app",
+    images: [{ url: "https://www.deepakdas.online/og-image.jpg", width: 1200, height: 630, alt: "Flutter Chat App by Deepak Das" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flutter Chat App Case Study | Deepak Das",
+    description: "Real-time Flutter chat app with Firebase & WebSockets — built by Deepak Das, Flutter developer from Kerala.",
+    images: ["https://www.deepakdas.online/og-image.jpg"],
+  },
 };
 
 export default function FlutterChatApp() {
@@ -47,7 +59,7 @@ export default function FlutterChatApp() {
           <p>
             This case study details the development of a real-time chat application using Flutter. The application ensures seamless cross-platform performance across iOS and Android, leveraging WebSockets and Firebase for real-time messaging, push notifications, and user authentication.
           </p>
-          <br/>
+          <br />
           <h2>Technologies Used</h2>
           <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
             <li>Flutter & Dart</li>

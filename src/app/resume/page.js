@@ -15,13 +15,13 @@ export const metadata = {
     title: "Resume | Deepak Das — Flutter & Full Stack Developer, Palakkad, Kerala",
     description: "Download the resume of Deepak Das — Flutter, React, Node.js, Python & DevOps developer from Palakkad, Kerala.",
     url: "https://www.deepakdas.online/resume",
-    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das - Resume" }],
+    images: [{ url: "https://www.deepakdas.online/og-image.jpg", width: 1200, height: 630, alt: "Deepak Das - Resume" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Resume | Deepak Das — Flutter & Full Stack Developer",
     description: "Download the resume of Deepak Das — Flutter & Full Stack Developer from Palakkad, Kerala.",
-    images: ["https://www.deepakdas.online/og-image.png"],
+    images: ["https://www.deepakdas.online/og-image.jpg"],
   },
 };
 
@@ -55,7 +55,7 @@ export default function ResumePage() {
           <DecryptedText text="My Resume" animateOn="view" revealDirection="center" />
           <span className={styles.orangeDot}>.</span>
         </h1>
-        
+
         <p style={{ color: 'var(--fg-muted)', marginBottom: '3rem', textAlign: 'center', maxWidth: '600px', fontSize: '1.2rem', lineHeight: '1.6' }}>
           Get a comprehensive overview of my technical skills, professional experience, and educational background.
         </p>

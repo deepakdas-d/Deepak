@@ -163,7 +163,7 @@ export default function Home() {
       {/* Hero */}
       <main id="home" className={styles.hero}>
         <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
-          Deepak Das – Full Stack Developer Specializing in Flutter, Django & AWS
+          Deepak Das (deepakdas) – Best Flutter, Python & Full Stack Developer in Kerala | Django, React & AWS Expert
         </h1>
         <p className={styles.heroEyebrow}>
           <DecryptedText text="Hello, I'm" animateOn="view" revealDirection="start" />
@@ -223,7 +223,7 @@ export default function Home() {
             >
               <Image
                 src="/images/deepak.jpeg"
-                alt="Deepak Das Full Stack Developer"
+                alt="Deepak Das — Best Flutter and Full Stack Developer in Kerala, India"
                 width={400}
                 height={400}
                 className={styles.aboutImage}

@@ -5,11 +5,23 @@ import DecryptedText from '../../../components/DecryptedText';
 import styles from '../../home.module.css';
 
 export const metadata = {
-  title: "E-commerce Admin Panel Case Study | Deepak Das",
-  description: "A case study exploring the creation of a comprehensive, secure e-commerce admin panel using React, Django, and AWS.",
+  title: "E-commerce Admin Panel – Django & React Project by Deepak Das",
+  description: "Case study: Deepak Das built a secure e-commerce admin panel using Django REST Framework, React, AWS & PostgreSQL. Full stack development from Kerala, India.",
   alternates: {
     canonical: 'https://www.deepakdas.online/projects/ecommerce-admin-panel',
-  }
+  },
+  openGraph: {
+    title: "E-commerce Admin Panel | Deepak Das – Django & React Developer Kerala",
+    description: "Secure e-commerce admin panel built with Django REST Framework, React, AWS & PostgreSQL — by Deepak Das, full stack developer from Kerala.",
+    url: "https://www.deepakdas.online/projects/ecommerce-admin-panel",
+    images: [{ url: "https://www.deepakdas.online/og-image.jpg", width: 1200, height: 630, alt: "E-commerce Admin Panel by Deepak Das" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "E-commerce Admin Panel Case Study | Deepak Das",
+    description: "Django + React + AWS e-commerce admin panel — by Deepak Das, full stack developer from Kerala.",
+    images: ["https://www.deepakdas.online/og-image.jpg"],
+  },
 };
 
 export default function EcommerceAdminPanel() {
@@ -47,7 +59,7 @@ export default function EcommerceAdminPanel() {
           <p>
             An intricate back-office e-commerce management panel built to handle inventory, user management, analytics, and order tracking. Focus was placed heavily on a secure Django REST Framework backend and a scalable React frontend.
           </p>
-          <br/>
+          <br />
           <h2>Technologies Used</h2>
           <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
             <li>React.js</li>

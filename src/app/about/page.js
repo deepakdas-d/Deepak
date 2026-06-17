@@ -8,28 +8,56 @@ import CardNav from '../../components/CardNav';
 import styles from '../home.module.css';
 
 export const metadata = {
-  title: "About | Deepak Das — Flutter & Full Stack Developer",
-  description: "Learn more about Deepak Das, a Flutter & Full Stack Developer from Palakkad, Kerala, India. Specializing in Flutter, React, Node.js, Python & DevOps. Building cross-platform apps and scalable backend systems.",
+  title: "About Deepak Das – Best Flutter, Python & Django Developer in Kerala",
+  description: "Learn about Deepak Das (deepakdas), the best Flutter & Full Stack Developer from Palakkad, Kerala. Expert in Flutter, Python, Django, React, Node.js & DevOps. Building cross-platform apps and scalable backend systems.",
   alternates: {
     canonical: 'https://www.deepakdas.online/about',
   },
   openGraph: {
-    title: "About | Deepak Das — Flutter & Full Stack Developer, Palakkad, Kerala",
-    description: "Flutter & Full Stack Developer from Palakkad, Kerala — Flutter, React, Node.js, Python & DevOps specialist. Cross-platform apps, REST APIs, cloud deployments.",
+    title: "About Deepak Das – Best Flutter, Python & Django Developer in Kerala",
+    description: "Deepak Das (deepakdas) — Best Flutter, Python, Django & Full Stack Developer from Palakkad, Kerala. Cross-platform apps, REST APIs, cloud deployments.",
     url: "https://www.deepakdas.online/about",
-    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das - Flutter & Full Stack Developer Palakkad Kerala" }],
+    images: [{ url: "https://www.deepakdas.online/og-image.jpg", width: 1200, height: 630, alt: "Deepak Das - Best Flutter & Full Stack Developer in Kerala" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About | Deepak Das — Flutter & Full Stack Developer",
-    description: "Flutter & Full Stack Developer from Palakkad, Kerala — Flutter, React, Node.js, Python & DevOps specialist.",
-    images: ["https://www.deepakdas.online/og-image.png"],
+    title: "About Deepak Das – Best Flutter & Full Stack Developer in Kerala",
+    description: "Deepak Das (deepakdas) — Best Flutter, Python, Django & Full Stack Developer from Palakkad, Kerala.",
+    images: ["https://www.deepakdas.online/og-image.jpg"],
   },
+};
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://www.deepakdas.online/#person",
+    "name": "Deepak Das",
+    "alternateName": "deepakdas",
+    "jobTitle": "Flutter & Full Stack Developer",
+    "description": "Best Flutter, Python, Django & Full Stack developer based in Palakkad, Kerala, India.",
+    "url": "https://www.deepakdas.online",
+    "image": "https://www.deepakdas.online/images/deepak.jpeg",
+    "sameAs": [
+      "https://github.com/deepakdas-d",
+      "https://www.linkedin.com/in/deepak-das-d-76768034a/",
+      "https://x.com/deepakdasd07"
+    ]
+  },
+  "dateCreated": "2025-01-01",
+  "dateModified": "2026-06-17"
 };
 
 export default function AboutPage() {
   return (
     <div className={styles.root}>
+      {/* ProfilePage JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
+
       {/* Nav */}
       <CardNav
         logo=""
@@ -42,6 +70,7 @@ export default function AboutPage() {
             links: [
               { label: "Home", ariaLabel: "Home Page", href: "/" },
               { label: "Experience", ariaLabel: "Experience", href: "/projects" },
+              { label: "Blog", ariaLabel: "Blog", href: "/blog" },
               { label: "Resume", ariaLabel: "Resume", href: "/resume" }
             ]
           }
@@ -58,7 +87,7 @@ export default function AboutPage() {
           <div className={styles.aboutImageContainer}>
             <Image
               src="/images/deepak.jpeg"
-              alt="Deepak Das, Full Stack Developer from Kerala specializing in Flutter, Django and React"
+              alt="Deepak Das — Best Flutter, Python and Full Stack Developer from Kerala, India"
               width={400}
               height={400}
               className={styles.aboutImage}
@@ -66,7 +95,7 @@ export default function AboutPage() {
           </div>
           <div className={styles.aboutContent}>
             <h1 className={styles.sectionTitle} style={{ marginBottom: '1.5rem' }}>
-              <DecryptedText text="About Me" animateOn="view" revealDirection="center" />
+              <DecryptedText text="About Deepak Das" animateOn="view" revealDirection="center" />
               <span className={styles.orangeDot}>.</span>
             </h1>
             <div className={styles.aboutBios}>
