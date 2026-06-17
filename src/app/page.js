@@ -37,6 +37,70 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Scroll to section based on initial pathname if directly visited
+    const path = window.location.pathname;
+    let targetId = null;
+    if (path === '/aboutme') targetId = 'about';
+    else if (path === '/expertise') targetId = 'expertise';
+    else if (path === '/experience') targetId = 'experience';
+    else if (path === '/contact') targetId = 'contact';
+
+    if (targetId) {
+      const element = document.getElementById(targetId);
+      if (element) {
+        setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 500); // Wait for rendering
+      }
+    }
+
+    // Use IntersectionObserver to track visible sections
+    const activeSections = new Map();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activeSections.set(entry.target.id, entry.intersectionRatio);
+        } else {
+          activeSections.delete(entry.target.id);
+        }
+      });
+
+      if (activeSections.size > 0) {
+        let maxRatio = -1;
+        let activeId = null;
+        
+        activeSections.forEach((ratio, id) => {
+          if (ratio > maxRatio) {
+            maxRatio = ratio;
+            activeId = id;
+          }
+        });
+
+        if (activeId) {
+          let newPath = '/';
+          if (activeId === 'about') newPath = '/aboutme';
+          else if (activeId === 'expertise') newPath = '/expertise';
+          else if (activeId === 'experience') newPath = '/experience';
+          else if (activeId === 'contact') newPath = '/contact';
+          
+          if (window.location.pathname !== newPath) {
+            window.history.replaceState(null, '', newPath);
+          }
+        }
+      }
+    }, {
+      root: null,
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], // Track ratio smoothly
+    });
+
+    const sections = document.querySelectorAll('section[id], main[id]');
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <div className={styles.root}>
       <ScrollProgress />
@@ -75,7 +139,7 @@ export default function Home() {
             textColor: "var(--fg)",
             links: [
               { label: "Experience", ariaLabel: "About Experience", href: "#experience" },
-              { label: "Skills", ariaLabel: "About Skills", href: "#about" }
+              { label: "Skills", ariaLabel: "About Skills", href: "#expertise" }
             ]
           },
           {
@@ -97,7 +161,7 @@ export default function Home() {
       />
 
       {/* Hero */}
-      <main className={styles.hero}>
+      <main id="home" className={styles.hero}>
         <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
           Deepak Das – Full Stack Developer Specializing in Flutter, Django & AWS
         </h1>
@@ -183,9 +247,14 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+      </SectionReveal>
 
-          <SectionDivider />
+      <SectionDivider />
 
+      {/* Expertise */}
+      <SectionReveal>
+        <section id="expertise" className={styles.sectionAbout}>
           <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <DecryptedText text="My Expertise" animateOn="view" revealDirection="center" />
             <span className={styles.orangeDot}>.</span>

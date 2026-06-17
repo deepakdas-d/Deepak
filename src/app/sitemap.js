@@ -1,10 +1,20 @@
 export default function sitemap() {
-  return [
-    {
-      url: 'https://www.deepakdas.online',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
+  const baseUrl = 'https://www.deepakdas.online';
+  
+  const routes = [
+    '',
+    '/about',
+    '/projects',
+    '/resume',
+    '/projects/flutter-chat-app',
+    '/projects/webrtc-audio-streaming',
+    '/projects/ecommerce-admin-panel',
   ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: route === '' ? 'monthly' : 'weekly',
+    priority: route === '' ? 1 : 0.8,
+  }));
 }

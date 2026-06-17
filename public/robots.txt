@@ -1,9 +1,4 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
-Host: https://www.deepakdas.online
-
-# Sitemaps
 Sitemap: https://www.deepakdas.online/sitemap.xml

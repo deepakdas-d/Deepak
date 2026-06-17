@@ -26,17 +26,17 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.deepakdas.online",
-    title: "Deepak Das | Full Stack Developer | Flutter, Django & AWS Developer Kerala India",
-    description: "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
+    title: "Deepak Das | Full Stack Developer",
+    description: "Flutter, Android, Backend & Web Developer",
     siteName: "Deepak Das Portfolio",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Deepak Das Portfolio" }],
+    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das Portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deepak Das | Full Stack Developer | Flutter, Django & AWS Developer Kerala India",
-    description: "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
+    title: "Deepak Das | Full Stack Developer",
+    description: "Flutter, Android, Backend & Web Developer",
     creator: "@deepakdasd07",
-    images: ["/opengraph-image"],
+    images: ["https://www.deepakdas.online/og-image.png"],
   },
   robots: {
     index: true,
@@ -44,7 +44,7 @@ export const metadata = {
   },
   metadataBase: new URL("https://www.deepakdas.online"),
   alternates: {
-    canonical: "https://www.deepakdas.online/",
+    canonical: "/",
   },
   verification: {
     google: "insert-google-verification-id",
