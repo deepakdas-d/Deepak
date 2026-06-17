@@ -60,14 +60,14 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
-  verification: {
-    google: "insert-google-verification-id",
-    yandex: "insert-yandex-verification-id", // Often used for Bing as well in some structures, but we can also use other
-    yahoo: "insert-yahoo-verification-id",
-    other: {
-      "msvalidate.01": ["insert-bing-verification-id"],
-    },
-  },
+  // verification: {
+  //   google: "insert-google-verification-id",
+  //   yandex: "insert-yandex-verification-id", // Often used for Bing as well in some structures, but we can also use other
+  //   yahoo: "insert-yahoo-verification-id",
+  //   other: {
+  //     "msvalidate.01": ["insert-bing-verification-id"],
+  //   },
+  // },
 };
 
 export const viewport = {

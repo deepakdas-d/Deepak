@@ -9,10 +9,22 @@ import styles from '../home.module.css';
 
 export const metadata = {
   title: "About | Deepak Das",
-  description: "Learn more about Deepak Das, a Full Stack Developer based in India, specializing in React and Django.",
+  description: "Learn more about Deepak Das, a Full Stack Developer from Kerala, India, specializing in Flutter, Django and React. Building cross-platform apps and scalable backend systems.",
   alternates: {
     canonical: 'https://www.deepakdas.online/about',
-  }
+  },
+  openGraph: {
+    title: "About | Deepak Das – Full Stack Developer Kerala",
+    description: "Full Stack Developer from Kerala, India — Flutter, Django & React specialist. Cross-platform apps, REST APIs, AWS deployments.",
+    url: "https://www.deepakdas.online/about",
+    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das - Full Stack Developer Kerala" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Deepak Das – Full Stack Developer",
+    description: "Full Stack Developer from Kerala, India — Flutter, Django & React specialist.",
+    images: ["https://www.deepakdas.online/og-image.png"],
+  },
 };
 
 export default function AboutPage() {
@@ -46,7 +58,7 @@ export default function AboutPage() {
           <div className={styles.aboutImageContainer}>
             <Image
               src="/images/deepak.jpeg"
-              alt="Deepak Das, Full Stack Developer specializing in React and Django"
+              alt="Deepak Das, Full Stack Developer from Kerala specializing in Flutter, Django and React"
               width={400}
               height={400}
               className={styles.aboutImage}

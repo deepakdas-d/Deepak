@@ -7,10 +7,22 @@ import styles from '../home.module.css';
 
 export const metadata = {
   title: "Projects & Experience | Deepak Das",
-  description: "View the professional experience and projects of Deepak Das, a Full Stack Developer.",
+  description: "Professional experience and projects of Deepak Das — Full Stack Developer from Kerala, India, specializing in Flutter, Django, React and AWS deployments.",
   alternates: {
     canonical: 'https://www.deepakdas.online/projects',
-  }
+  },
+  openGraph: {
+    title: "Projects & Experience | Deepak Das – Full Stack Developer",
+    description: "Full Stack projects — Flutter apps, Django backends, AWS deployments, WebRTC & WebSocket systems.",
+    url: "https://www.deepakdas.online/projects",
+    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das - Projects & Experience" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects & Experience | Deepak Das",
+    description: "Full Stack projects — Flutter apps, Django backends, AWS deployments.",
+    images: ["https://www.deepakdas.online/og-image.png"],
+  },
 };
 
 export default function ProjectsPage() {
