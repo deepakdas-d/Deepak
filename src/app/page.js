@@ -227,6 +227,7 @@ export default function Home() {
                 width={400}
                 height={400}
                 className={styles.aboutImage}
+                priority
               />
             </motion.div>
             <div className={styles.aboutContent}>
