@@ -8,16 +8,6 @@ const styles = {
     wrapper: {
         display: 'inline-block',
         whiteSpace: 'pre-wrap'
-    },
-    srOnly: {
-        position: 'absolute',
-        width: '1px',
-        height: '1px',
-        padding: 0,
-        margin: '-1px',
-        overflow: 'hidden',
-        clip: 'rect(0,0,0,0)',
-        border: 0
     }
 };
 
@@ -368,9 +358,7 @@ export default function DecryptedText({
                 : {};
 
     return (
-        <motion.span className={parentClassName} ref={containerRef} style={styles.wrapper} {...animateProps} {...props}>
-            <span style={styles.srOnly}>{displayText}</span>
-
+        <motion.span className={parentClassName} ref={containerRef} style={styles.wrapper} aria-label={text} role="text" {...animateProps} {...props}>
             <span aria-hidden="true">
                 {displayText.split('').map((char, index) => {
                     const isRevealedOrDone = revealedIndices.has(index) || (!isAnimating && isDecrypted);

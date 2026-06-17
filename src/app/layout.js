@@ -19,6 +19,7 @@ export const metadata = {
     template: "%s | Deepak Das | Full Stack Developer"
   },
   description: "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
+  keywords: ["Deepak Das", "Full Stack Developer", "Flutter Developer", "Django Developer", "AWS", "Firebase", "Kerala", "India", "Kochi", "Remote Developer", "Portfolio", "Software Engineer"],
   authors: [{ name: "Deepak Das" }],
   creator: "Deepak Das",
   openGraph: {
@@ -28,12 +29,14 @@ export const metadata = {
     title: "Deepak Das | Full Stack Developer | Flutter, Django & AWS Developer Kerala India",
     description: "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
     siteName: "Deepak Das Portfolio",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Deepak Das Portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Deepak Das | Full Stack Developer | Flutter, Django & AWS Developer Kerala India",
     description: "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
     creator: "@deepakdasd07",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -41,7 +44,7 @@ export const metadata = {
   },
   metadataBase: new URL("https://www.deepakdas.online"),
   alternates: {
-    canonical: "/",
+    canonical: "https://www.deepakdas.online/",
   },
   verification: {
     google: "insert-google-verification-id",
@@ -71,10 +74,11 @@ export default function RootLayout({ children }) {
             {
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": "https://www.deepakdas.online/#person",
               "name": "Deepak Das",
+              "jobTitle": "Full Stack Developer",
               "url": "https://www.deepakdas.online",
               "image": "https://www.deepakdas.online/images/deepak.jpeg",
-              "jobTitle": "Full Stack Developer",
               "description": "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
               "email": "enquiry@deepakdas.online",
               "address": {
