@@ -127,8 +127,9 @@ export default function LoaderAnimation() {
       repeat: 1,
     });
 
+    const currentFrame = frameRef.current;
     return () => {
-      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      if (currentFrame) cancelAnimationFrame(currentFrame);
       tl.kill();
     };
   }, []);
