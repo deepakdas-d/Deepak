@@ -19,7 +19,6 @@ export const metadata = {
     template: "%s | Deepak Das | Full Stack Developer"
   },
   description: "Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.",
-  keywords: ["Deepak Das", "Full Stack Developer", "Flutter Developer", "Django Developer", "AWS", "Firebase", "Kerala", "India", "Kochi", "Remote Developer", "Portfolio", "Software Engineer"],
   authors: [{ name: "Deepak Das" }],
   creator: "Deepak Das",
   openGraph: {
