@@ -8,7 +8,7 @@ import './CardNav.css';
 
 const CardNav = ({
     logo,
-    logoAlt = 'Logo',
+    logoAlt = 'Deepak Das Portfolio Logo',
     items,
     className = '',
     ease = 'power3.out',

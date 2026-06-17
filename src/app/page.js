@@ -99,7 +99,7 @@ export default function Home() {
       {/* Hero */}
       <main className={styles.hero}>
         <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
-          Deepak Das | Full Stack Developer | Flutter & Django Expert
+          Deepak Das – Full Stack Developer Specializing in Flutter, Django & AWS
         </h1>
         <p className={styles.heroEyebrow}>
           <DecryptedText text="Hello, I'm" animateOn="view" revealDirection="start" />
@@ -107,7 +107,7 @@ export default function Home() {
 
         <SplitText
           text="Deepak Das"
-          tag="h1"
+          tag="div"
           className={styles.heroName}
           delay={60}
           duration={0.9}
@@ -159,7 +159,7 @@ export default function Home() {
             >
               <Image
                 src="/images/deepak.jpeg"
-                alt="Deepak Das, Full Stack Developer specializing in React and Django"
+                alt="Deepak Das Full Stack Developer"
                 width={400}
                 height={400}
                 className={styles.aboutImage}
@@ -172,10 +172,10 @@ export default function Home() {
               </h2>
               <div className={styles.aboutBios}>
                 <p className={styles.aboutText}>
-                  I am a <strong>Full Stack developer</strong> based in India, specializing in <strong>React and Django</strong>. I am passionate about crafting seamless digital experiences, from building cross-platform mobile applications as a <strong>Flutter developer Kerala</strong>, to designing scalable backend systems that solve real-world problems.
+                  I am a <strong>Full Stack developer</strong> from <strong>Kerala, India</strong>, specializing in <strong>Flutter, Django, and React</strong>. I am passionate about crafting seamless digital experiences, from building cross-platform mobile applications to designing scalable backend systems that solve real-world problems.
                 </p>
                 <p className={styles.aboutText}>
-                  Proficient in <strong>Flutter, Django, and React.js</strong>, I specialize in RESTful API design, cloud deployment (AWS), and real-time communication using WebSockets and WebRTC. I enjoy bridging the gap between elegant UI and robust infrastructure.
+                  As a <strong>Remote Developer</strong> and tech enthusiast based near <strong>Kochi</strong>, I specialize in RESTful API design, cloud deployment (AWS), and real-time communication using WebSockets and WebRTC. I enjoy bridging the gap between elegant UI and robust infrastructure.
                 </p>
                 <p className={styles.aboutText}>
                   With a strong background in <strong>DevOps and CI/CD</strong>, I ensure production-grade quality from development to deployment. Whether it&apos;s integrating IoT devices or scaling server-side logic, I focus on performance, security, and user-centric design.
@@ -226,9 +226,12 @@ export default function Home() {
       {/* Footer */}
       <SectionReveal delay={200}>
         <footer className={styles.footer}>
-          <span>
-            <DecryptedText text="© 2026 Deepak Das" animateOn="view" revealDirection="start" />
-          </span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+            <span>
+              <DecryptedText text="© 2026 Deepak Das | Remote Developer" animateOn="view" revealDirection="start" />
+            </span>
+            <span style={{ fontSize: '0.9rem', color: '#a3a3a3' }}>Kerala, India</span>
+          </div>
           <div className={styles.footerLinks} style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <a href="mailto:enquiry@deepakdas.online" aria-label="Email" style={{ fontSize: '1.25rem' }}><FiMail /></a>
             <a href="https://github.com/deepakdas-d" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style={{ fontSize: '1.25rem' }}><FiGithub /></a>
