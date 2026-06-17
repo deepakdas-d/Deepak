@@ -6,10 +6,10 @@ import dynamic from 'next/dynamic';
 import SplitText from "../components/SplitText";
 import TextType from "../components/TextType";
 import CardNav from "../components/CardNav";
-const SkillsTabbed = dynamic(() => import("../components/SkillsTabbed"));
+const SkillsTabbed = dynamic(() => import("../components/SkillsTabbed"), { ssr: false });
 import DecryptedText from "../components/DecryptedText";
-const ExperienceSection = dynamic(() => import("../components/ExperienceSection"));
-const EnquirySection = dynamic(() => import("../components/EnquirySection"));
+const ExperienceSection = dynamic(() => import("../components/ExperienceSection"), { ssr: false });
+const EnquirySection = dynamic(() => import("../components/EnquirySection"), { ssr: false });
 import SectionReveal from "../components/SectionReveal";
 import ThemeToggle from "../components/ThemeToggle";
 import ScrollProgress from "../components/ScrollProgress";
@@ -33,7 +33,7 @@ export default function Home() {
     // Simulate a brief loading sequence for the skeleton logic
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -219,7 +219,7 @@ export default function Home() {
           <div className={`${styles.aboutWrapper} ${styles.glassCard}`}>
             <motion.div
               className={styles.aboutImageContainer}
-              style={{ y: yParallax }}
+              style={{ y: yParallax, willChange: 'transform' }}
             >
               <Image
                 src="/images/deepak.jpeg"
@@ -299,7 +299,7 @@ export default function Home() {
             <span>
               <DecryptedText text="© 2026 Deepak Das | Remote Developer" animateOn="view" revealDirection="start" />
             </span>
-            <span style={{ fontSize: '0.9rem', color: '#a3a3a3' }}>Kerala, India</span>
+            <span style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Kerala, India</span>
           </div>
           <div className={styles.footerLinks} style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <a href="mailto:enquiry@deepakdas.online" aria-label="Email" style={{ fontSize: '1.25rem' }}><FiMail /></a>

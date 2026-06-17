@@ -12,7 +12,7 @@ const ColorResolver = ({ colorVar, onResolved }) => {
     }, [colorVar, onResolved]);
 
     return (
-        <div ref={ref} style={{ color: colorVar, display: 'none' }} aria-hidden="true" />
+        <div ref={ref} style={{ color: colorVar, display: 'none' }} />
     );
 };
 
