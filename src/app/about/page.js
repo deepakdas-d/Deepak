@@ -8,21 +8,21 @@ import CardNav from '../../components/CardNav';
 import styles from '../home.module.css';
 
 export const metadata = {
-  title: "About | Deepak Das",
-  description: "Learn more about Deepak Das, a Full Stack Developer from Kerala, India, specializing in Flutter, Django and React. Building cross-platform apps and scalable backend systems.",
+  title: "About | Deepak Das — Flutter & Full Stack Developer",
+  description: "Learn more about Deepak Das, a Flutter & Full Stack Developer from Palakkad, Kerala, India. Specializing in Flutter, React, Node.js, Python & DevOps. Building cross-platform apps and scalable backend systems.",
   alternates: {
     canonical: 'https://www.deepakdas.online/about',
   },
   openGraph: {
-    title: "About | Deepak Das – Full Stack Developer Kerala",
-    description: "Full Stack Developer from Kerala, India — Flutter, Django & React specialist. Cross-platform apps, REST APIs, AWS deployments.",
+    title: "About | Deepak Das — Flutter & Full Stack Developer, Palakkad, Kerala",
+    description: "Flutter & Full Stack Developer from Palakkad, Kerala — Flutter, React, Node.js, Python & DevOps specialist. Cross-platform apps, REST APIs, cloud deployments.",
     url: "https://www.deepakdas.online/about",
-    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das - Full Stack Developer Kerala" }],
+    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das - Flutter & Full Stack Developer Palakkad Kerala" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About | Deepak Das – Full Stack Developer",
-    description: "Full Stack Developer from Kerala, India — Flutter, Django & React specialist.",
+    title: "About | Deepak Das — Flutter & Full Stack Developer",
+    description: "Flutter & Full Stack Developer from Palakkad, Kerala — Flutter, React, Node.js, Python & DevOps specialist.",
     images: ["https://www.deepakdas.online/og-image.png"],
   },
 };

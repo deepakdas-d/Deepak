@@ -6,11 +6,23 @@ import { FiDownload } from 'react-icons/fi';
 import styles from '../home.module.css';
 
 export const metadata = {
-  title: "Resume | Deepak Das",
-  description: "Download the resume of Deepak Das, Full Stack Developer.",
+  title: "Resume | Deepak Das — Flutter & Full Stack Developer",
+  description: "Download the resume of Deepak Das, Flutter & Full Stack Developer from Palakkad, Kerala. Skills in Flutter, React, Node.js, Python, DevOps & cloud infrastructure.",
   alternates: {
     canonical: 'https://www.deepakdas.online/resume',
-  }
+  },
+  openGraph: {
+    title: "Resume | Deepak Das — Flutter & Full Stack Developer, Palakkad, Kerala",
+    description: "Download the resume of Deepak Das — Flutter, React, Node.js, Python & DevOps developer from Palakkad, Kerala.",
+    url: "https://www.deepakdas.online/resume",
+    images: [{ url: "https://www.deepakdas.online/og-image.png", width: 1200, height: 630, alt: "Deepak Das - Resume" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resume | Deepak Das — Flutter & Full Stack Developer",
+    description: "Download the resume of Deepak Das — Flutter & Full Stack Developer from Palakkad, Kerala.",
+    images: ["https://www.deepakdas.online/og-image.png"],
+  },
 };
 
 export default function ResumePage() {

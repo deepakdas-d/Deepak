@@ -1,8 +1,8 @@
 export default function manifest() {
   return {
-    name: 'Deepak Das Portfolio',
+    name: 'Deepak Das — Developer Portfolio',
     short_name: 'Deepak Das',
-    description: 'Full Stack Developer from Kerala, India specializing in Flutter, Django, AWS, Firebase and scalable web and mobile applications.',
+    description: 'Flutter & Full Stack Developer from Palakkad, Kerala. Specializing in Flutter, React, Node.js, Python, DevOps and scalable web and mobile applications.',
     start_url: '/',
     display: 'standalone',
     background_color: '#0a0a0a',
