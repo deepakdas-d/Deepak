@@ -124,8 +124,8 @@ const jsonLd = {
       "@type": "ProfilePage",
       "@id": "https://www.deepakdas.online/#profilepage",
       "mainEntity": { "@id": "https://www.deepakdas.online/#person" },
-      "dateCreated": "2025-01-01",
-      "dateModified": "2026-06-17"
+      "dateCreated": "2025-01-01T00:00:00+05:30",
+      "dateModified": "2026-06-17T00:00:00+05:30"
     },
     {
       "@type": "ProfessionalService",

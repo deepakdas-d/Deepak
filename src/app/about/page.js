@@ -45,8 +45,8 @@ const aboutJsonLd = {
       "https://x.com/deepakdasd07"
     ]
   },
-  "dateCreated": "2025-01-01",
-  "dateModified": "2026-06-17"
+  "dateCreated": "2025-01-01T00:00:00+05:30",
+  "dateModified": "2026-06-17T00:00:00+05:30"
 };
 
 export default function AboutPage() {
