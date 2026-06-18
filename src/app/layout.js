@@ -106,7 +106,7 @@ const jsonLd = {
       },
       "sameAs": [
         "https://github.com/deepakdas-d",
-        "https://www.linkedin.com/in/deepak-das-d-76768034a/",
+        "https://www.linkedin.com/in/deepak-das-d/",
         "https://x.com/deepakdasd07"
       ],
       "knowsAbout": [
