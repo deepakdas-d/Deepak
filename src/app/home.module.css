@@ -225,23 +225,15 @@
 
 .glassCard {
     position: relative;
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0.05) 100%);
+    background: var(--card-bg);
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     border-radius: 24px;
-    padding: 3rem;
+    padding: var(--space-12);
 
     /* Multi-layered shadows for depth */
-    box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06),
-        0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.05);
-
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-2);
+    border: 1px solid var(--border-strong);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
 }
@@ -289,11 +281,10 @@
 }
 
 .glassCard:hover {
-    transform: translateY(-8px) scale(1.01);
-    border-color: rgba(255, 255, 255, 0.25);
-    box-shadow:
-        0 25px 50px -12px rgba(0, 0, 0, 0.5),
-        inset 0 0 30px rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-3);
+    /* Transform handled by Framer Motion in component if applicable, 
+       otherwise let it be a subtle shadow lift to prevent layout jitter */
 }
 
 .glassCard:hover::after {
@@ -302,10 +293,8 @@
 
 /* Dark mode adjustment for glass */
 [data-theme="dark"] .glassCard {
-    background: linear-gradient(135deg,
-            rgba(30, 30, 30, 0.4) 0%,
-            rgba(15, 15, 15, 0.6) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--card-bg);
+    border: 1px solid var(--border-medium);
 }
 
 .aboutImageContainer {
@@ -441,10 +430,10 @@
 }
 
 .workCard {
-    padding: 2.5rem;
+    padding: var(--space-8);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-4);
     border: 1px solid var(--border);
     transition: all 0.3s ease;
     cursor: pointer;
@@ -455,8 +444,7 @@
 
 .workCard:hover {
     border-color: var(--accent);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px -10px var(--shadow-accent);
+    box-shadow: var(--shadow-2);
 }
 
 .workTag {

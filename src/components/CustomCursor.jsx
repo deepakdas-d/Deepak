@@ -18,7 +18,12 @@ const CustomCursor = () => {
 
   useEffect(() => {
     Promise.resolve().then(() => {
-      setMounted(true);
+      // Don't render custom cursor on touch devices to improve performance and UX
+      if (window.matchMedia('(pointer: coarse)').matches) {
+        setMounted(false);
+      } else {
+        setMounted(true);
+      }
     });
 
     const moveCursor = (e) => {

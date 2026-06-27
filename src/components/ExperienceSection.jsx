@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ExperienceSection.module.css';
 
 const experiences = [
@@ -89,50 +90,72 @@ export default function ExperienceSection() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.timeline}>
-                {visibleExperiences.map((exp) => (
-                    <div key={exp.id} className={styles.experienceCard}>
-                        <div className={styles.header}>
-                            <div className={styles.titleWrapper}>
-                                <h3 className={styles.title}>
-                                    {exp.link ? (
-                                        <a href={exp.link} target="_blank" rel="noopener noreferrer" className={styles.titleLink}>
-                                            {exp.title} <span className={styles.linkArrow}>↗</span>
-                                        </a>
-                                    ) : (
-                                        exp.title
-                                    )}
-                                </h3>
-                                <span className={styles.duration}>{exp.duration}</span>
-                            </div>
-                            <div className={styles.companyRole}>
-                                <span className={styles.company}>{exp.company}</span>
-                                <span className={styles.dot}>•</span>
-                                <span className={styles.role}>{exp.role}</span>
-                            </div>
-                        </div>
+            <motion.div layout className={styles.timeline}>
+                <AnimatePresence initial={false}>
+                    {visibleExperiences.map((exp, index) => (
+                        <motion.div 
+                            key={exp.id}
+                            layout
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+                            transition={{ type: "spring", stiffness: 300, damping: 30, delay: index * 0.05 }}
+                            className={styles.experienceCardWrapper}
+                        >
+                            <motion.div 
+                                className={styles.experienceCard}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                            >
+                                <div className={styles.header}>
+                                    <div className={styles.titleWrapper}>
+                                        <h3 className={styles.title}>
+                                            {exp.link ? (
+                                                <a href={exp.link} target="_blank" rel="noopener noreferrer" className={styles.titleLink}>
+                                                    {exp.title} <span className={styles.linkArrow}>↗</span>
+                                                </a>
+                                            ) : (
+                                                exp.title
+                                            )}
+                                        </h3>
+                                        <span className={styles.duration}>{exp.duration}</span>
+                                    </div>
+                                    <div className={styles.companyRole}>
+                                        <span className={styles.company}>{exp.company}</span>
+                                        <span className={styles.dot}>•</span>
+                                        <span className={styles.role}>{exp.role}</span>
+                                    </div>
+                                </div>
 
-                        <div className={styles.techWrapper}>
-                            {exp.tech.split('|').map((t, idx) => (
-                                <span key={idx} className={styles.techPill}>{t.trim()}</span>
-                            ))}
-                        </div>
+                                <div className={styles.techWrapper}>
+                                    {exp.tech.split('|').map((t, idx) => (
+                                        <span key={idx} className={styles.techPill}>{t.trim()}</span>
+                                    ))}
+                                </div>
 
-                        <p className={styles.descriptionText}>
-                            {exp.description}
-                        </p>
-                    </div>
-                ))}
-            </div>
+                                <p className={styles.descriptionText}>
+                                    {exp.description}
+                                </p>
+                            </motion.div>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+            </motion.div>
 
-            <div className={styles.toggleWrapper}>
-                <button
+            <motion.div layout className={styles.toggleWrapper}>
+                <motion.button
+                    layout
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     className={styles.toggleBtn}
                     onClick={() => setIsExpanded(!isExpanded)}
+                    aria-expanded={isExpanded}
                 >
                     {isExpanded ? 'Show Less' : 'Show More +'}
-                </button>
-            </div>
+                </motion.button>
+            </motion.div>
         </div>
     );
 }

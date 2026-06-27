@@ -136,17 +136,17 @@ const CardNav = ({
         <div className={`card-nav-container ${className}`}>
             <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`} style={{ backgroundColor: baseColor }}>
                 <div className="card-nav-top">
-                    <div
+                    <button
+                        type="button"
                         className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
                         onClick={toggleMenu}
-                        role="button"
                         aria-label={isExpanded ? 'Close menu' : 'Open menu'}
-                        tabIndex={0}
+                        aria-expanded={isExpanded}
                         style={{ color: menuColor || '#000' }}
                     >
                         <div className="hamburger-line" />
                         <div className="hamburger-line" />
-                    </div>
+                    </button>
 
                     <div className="logo-container">
                         {logo ? <Image src={logo} alt={logoAlt} width={40} height={40} className="logo" /> : <div className="logo-placeholder" style={{ fontWeight: 600, fontSize: '1.25rem', color: '#000' }}>deepak<span style={{ color: '#ea580c' }}>.</span></div>}
